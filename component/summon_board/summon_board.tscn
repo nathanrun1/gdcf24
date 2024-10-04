@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://73x5p86frie8"]
+
+[ext_resource type="Script" path="res://script/SummonBoard/Casting.gd" id="1_i2ny1"]
+
+[node name="summon_board" type="Node2D"]
+script = ExtResource("1_i2ny1")
+
+[node name="cast_line" type="Line2D" parent="."]
