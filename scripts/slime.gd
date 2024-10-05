@@ -5,11 +5,12 @@ extends CharacterBody2D
 
 @onready var player := $"../Player"
 
-const speed : int = 50;
+const speed : int = 20;
 
 
 func _physics_process(delta: float) -> void:
 	var direction : Vector2 = global_position.direction_to(player.global_position)
+	
 	velocity = speed * direction
 	move_and_slide()
 

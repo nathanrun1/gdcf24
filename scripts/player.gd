@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var sprite_anm = $AnimatedSprite2D
 const SPEED = 100
 
 func _physics_process(delta: float) -> void:
@@ -19,3 +20,9 @@ func _physics_process(delta: float) -> void:
 		
 	
 	move_and_slide()
+	
+	if (velocity.length() > 0.0):
+		sprite_anm.play("move")
+	else:
+		sprite_anm.play("idle")
+	
