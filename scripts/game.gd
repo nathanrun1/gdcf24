@@ -10,7 +10,6 @@ func _process(delta: float):
 			summon_direction = Vector2(-50, 0)
 		
 		
-		
 		if Input.is_action_just_pressed("summon_slime"):
 			var summoned_slime = preload("res://scenes/slime.tscn").instantiate()
 			summoned_slime.position = player.global_position + summon_direction

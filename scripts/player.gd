@@ -22,9 +22,6 @@ func _physics_process(delta: float) -> void:
 	
 	
 	move_and_collide(velocity * delta)
-	
-	
-
 
 func _play_animation() -> void:
 	if (velocity.length() > 0.0):
