@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://43m13gq5883u"]
+[gd_scene load_steps=8 format=4 uid="uid://43m13gq5883u"]
 
 [ext_resource type="Texture2D" uid="uid://dtoq7af1llk04" path="res://assets/sprites/wall_ph.png" id="1_4tieh"]
 [ext_resource type="PackedScene" uid="uid://c7mhfttbgml0" path="res://scenes/player.tscn" id="2_flune"]
+[ext_resource type="PackedScene" path="res://scenes/coilbra.tscn" id="3_7yewe"]
 [ext_resource type="PackedScene" uid="uid://dvmf7a1kwdnhk" path="res://scenes/summon_panel.tscn" id="4_a1qly"]
+[ext_resource type="PackedScene" uid="uid://ccq0i4e77p8mw" path="res://scenes/slime.tscn" id="5_jp777"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwstx"]
 texture = ExtResource("1_4tieh")
@@ -33,3 +35,14 @@ offset_top = 31.0
 offset_right = -374.0
 offset_bottom = 31.0
 scale = Vector2(0.39, 0.39)
+
+[node name="coilbra" parent="." instance=ExtResource("3_7yewe")]
+
+[node name="coilbra2" parent="." instance=ExtResource("3_7yewe")]
+position = Vector2(-102, 59)
+
+[node name="Slime" parent="." instance=ExtResource("5_jp777")]
+position = Vector2(-26, -91)
+
+[node name="Slime2" parent="." instance=ExtResource("5_jp777")]
+position = Vector2(-173, -72)

@@ -1,6 +1,5 @@
 class_name SummoningPanel extends Panel
 
-
 const SUMMON_NODE_CENTER_OFFSET: Vector2 = Vector2(22, 22)
 
 var drawing_line: Line2D
@@ -11,7 +10,7 @@ var pattern: Array[int]
 @export_category("DEBUG")
 @export var reset_after_complete: bool
 
-signal drawing_complete(pattern)
+signal summon(pattern: Array[int])
 
 ## Resets the summoning panel for reuse
 func reset():
@@ -39,7 +38,9 @@ func _process(delta: float) -> void:
 			mouse_pos)
 			
 		if not Input.is_mouse_button_pressed(1):
-			_finish_drawing()	
+			_finish_drawing()
+		
+	
 
 func _on_summon_node_clicked(summon_node: SummonNode) -> void:
 	if can_draw and not summon_node.selected:
@@ -56,7 +57,7 @@ func _finish_drawing() -> void:
 	drawing_line.remove_point(drawing_line.get_point_count() - 1)
 	is_drawing = false
 	can_draw = false
-	drawing_complete.emit(pattern)
+	summon.emit(pattern)
 	# DEBUG
 	if reset_after_complete:
 		reset()
