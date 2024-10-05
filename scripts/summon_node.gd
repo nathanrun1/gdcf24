@@ -3,7 +3,8 @@ class_name SummonNode
 
 
 var selected = false
-@export var index = -1
+@export var index: int = -1
+@export var grid_pos: Vector2 = Vector2(-1, -1)
 
 signal clicked(summon_node: SummonNode)
 signal hovered(summon_node: SummonNode)
