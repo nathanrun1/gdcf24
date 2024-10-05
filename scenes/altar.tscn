@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6moqch6wl8es"]
+[gd_scene load_steps=4 format=3 uid="uid://c6moqch6wl8es"]
+
+[ext_resource type="Script" path="res://scripts/altar.gd" id="1_dmq41"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dok1a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2u7hb"]
+size = Vector2(0.911111, 0.93617)
 
 [node name="Altar" type="Sprite2D"]
 position = Vector2(25, 21)
 scale = Vector2(22.5, 23.5)
 texture = SubResource("PlaceholderTexture2D_dok1a")
+script = ExtResource("1_dmq41")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.8871e-08, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2u7hb")

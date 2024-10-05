@@ -17,10 +17,12 @@ config/icon="res://icon.svg"
 
 [display]
 
-
 window/size/viewport_width=2304
 window/size/viewport_height=1296
-
+window/stretch/mode="viewport"
+window/main_scene="res://scenes/player.tscn"
+window/canvas_textures/default_texture_filter=0
+<<<<<<<HEADwindow/main_scene="res://scenes/player.tscn"
 
 [rendering]
 
