@@ -44,8 +44,7 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.normalized() * min(velocity.length(), TOP_SPEED)
 
 	
-	if ((player_pos_at_charge - position).length() < velocity.length() * delta) \
-	 :
+	if ((player_pos_at_charge - position).length() < velocity.length() * delta):
 		stagger = true
 		stagger_timer = STAGGER_TIME
 		velocity = Vector2.ZERO

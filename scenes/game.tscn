@@ -1,12 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://n3unrhi0qwhx"]
+[gd_scene load_steps=6 format=4 uid="uid://n3unrhi0qwhx"]
 
 [ext_resource type="PackedScene" uid="uid://c7mhfttbgml0" path="res://scenes/player.tscn" id="1_47xqi"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_tx4aq"]
 [ext_resource type="Texture2D" uid="uid://dtoq7af1llk04" path="res://assets/sprites/wall_ph.png" id="2_oeo0e"]
-[ext_resource type="PackedScene" uid="uid://chpiscon6v44k" path="res://scenes/coilbra.tscn" id="4_0rvyl"]
-
-[sub_resource type="GDScript" id="GDScript_3ofif"]
-script/source = "extends Node2D
-"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_spjg0"]
 texture = ExtResource("2_oeo0e")
@@ -18,7 +14,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_spjg0")
 
 [node name="Game" type="Node2D"]
-script = SubResource("GDScript_3ofif")
+script = ExtResource("1_tx4aq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
@@ -29,6 +25,3 @@ tile_set = SubResource("TileSet_7lq7y")
 
 [node name="Player" parent="." instance=ExtResource("1_47xqi")]
 position = Vector2(-211, 57)
-
-[node name="coilbra" parent="." instance=ExtResource("4_0rvyl")]
-position = Vector2(247, -110)

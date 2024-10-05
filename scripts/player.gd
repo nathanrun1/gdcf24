@@ -4,13 +4,14 @@ class_name Player
 @onready var sprite_anm = $AnimatedSprite2D
 
 const SPEED : int = 200
+var direction : Vector2 = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	
 	_play_animation()
 	
 	
-	var direction : Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
+	direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
 	
 	velocity = SPEED * direction
 	
