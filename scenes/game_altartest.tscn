@@ -1,41 +1,48 @@
+[gd_scene load_steps=8 format=4 uid="uid://43m13gq5883u"]
 
-[gd_scene load_steps=7 format=4 uid="uid://n3unrhi0qwhx"]
+[ext_resource type="Texture2D" uid="uid://dtoq7af1llk04" path="res://assets/sprites/wall_ph.png" id="1_4tieh"]
+[ext_resource type="PackedScene" uid="uid://c7mhfttbgml0" path="res://scenes/player.tscn" id="2_flune"]
+[ext_resource type="PackedScene" path="res://scenes/coilbra.tscn" id="3_7yewe"]
+[ext_resource type="PackedScene" uid="uid://dvmf7a1kwdnhk" path="res://scenes/summon_panel.tscn" id="4_a1qly"]
+[ext_resource type="PackedScene" uid="uid://ccq0i4e77p8mw" path="res://scenes/slime.tscn" id="5_jp777"]
 
-[ext_resource type="PackedScene" uid="uid://c7mhfttbgml0" path="res://scenes/player.tscn" id="1_47xqi"]
-[ext_resource type="Texture2D" uid="uid://dtoq7af1llk04" path="res://assets/sprites/wall_ph.png" id="2_oeo0e"]
-[ext_resource type="PackedScene" uid="uid://chpiscon6v44k" path="res://scenes/coilbra.tscn" id="4_0rvyl"]
-
-[sub_resource type="GDScript" id="GDScript_3ofif"]
-script/source = "class_name Game extends Node2D
-
-func _ready():
-	for child in self.get_children():
-		if child is Altar:
-			child.summon.connect(_on_summon)
-
-func _on_summon(altar: Altar, pattern: Array[int]):
-	print(\"summon occured, pattern: \" + str(pattern))
-"
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_spjg0"]
-texture = ExtResource("2_oeo0e")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwstx"]
+texture = ExtResource("1_4tieh")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSet" id="TileSet_7lq7y"]
+[sub_resource type="TileSet" id="TileSet_qvjcy"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_spjg0")
+sources/0 = SubResource("TileSetAtlasSource_kwstx")
 
-[node name="Game" type="Node2D"]
-script = SubResource("GDScript_3ofif")
+[node name="GameAltartest" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(8, 4)
 tile_map_data = PackedByteArray("AADu/wkAAAAAAAAAAADv/wkAAAAAAAAAAADw/wkAAAAAAAAAAADx/wkAAAAAAAAAAADy/wkAAAAAAAAAAADz/wkAAAAAAAAAAAD0/wkAAAAAAAAAAAD1/wkAAAAAAAAAAAD2/wkAAAAAAAAAAAD3/wkAAAAAAAAAAAD4/wkAAAAAAAAAAAD5/wkAAAAAAAAAAAD6/wkAAAAAAAAAAAD7/wkAAAAAAAAAAAD8/wkAAAAAAAAAAAD9/wkAAAAAAAAAAAD+/wkAAAAAAAAAAAD//wkAAAAAAAAAAAAAAAkAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAADu/wgAAAAAAAAAAADu/wcAAAAAAAAAAADu/wYAAAAAAAAAAADu/wUAAAAAAAAAAADu/wQAAAAAAAAAAADu/wMAAAAAAAAAAADu/wIAAAAAAAAAAADu/wEAAAAAAAAAAADu/wAAAAAAAAAAAADu////AAAAAAAAAADu//7/AAAAAAAAAADu//3/AAAAAAAAAADu//z/AAAAAAAAAADu//v/AAAAAAAAAADu//r/AAAAAAAAAADu//n/AAAAAAAAAADu//j/AAAAAAAAAADu//f/AAAAAAAAAADu//b/AAAAAAAAAADv//b/AAAAAAAAAADw//b/AAAAAAAAAADx//b/AAAAAAAAAADy//b/AAAAAAAAAADz//b/AAAAAAAAAAD0//b/AAAAAAAAAAD1//b/AAAAAAAAAAD2//b/AAAAAAAAAAD3//b/AAAAAAAAAAD4//b/AAAAAAAAAAD5//b/AAAAAAAAAAD6//b/AAAAAAAAAAD7//b/AAAAAAAAAAD8//b/AAAAAAAAAAD9//b/AAAAAAAAAAD+//b/AAAAAAAAAAD///b/AAAAAAAAAAAAAPb/AAAAAAAAAAABAPb/AAAAAAAAAAACAPb/AAAAAAAAAAADAPb/AAAAAAAAAAAEAPb/AAAAAAAAAAAFAPb/AAAAAAAAAAAGAPb/AAAAAAAAAAAHAPb/AAAAAAAAAAAIAPb/AAAAAAAAAAAJAPb/AAAAAAAAAAAKAPb/AAAAAAAAAAALAPb/AAAAAAAAAAAMAPb/AAAAAAAAAAANAPb/AAAAAAAAAAAOAPb/AAAAAAAAAAAPAPb/AAAAAAAAAAAQAPb/AAAAAAAAAAARAPb/AAAAAAAAAAARAPf/AAAAAAAAAAARAPj/AAAAAAAAAAARAPn/AAAAAAAAAAARAPr/AAAAAAAAAAARAPv/AAAAAAAAAAARAPz/AAAAAAAAAAARAP3/AAAAAAAAAAARAP7/AAAAAAAAAAARAP//AAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAARAAMAAAAAAAAAAAARAAQAAAAAAAAAAAARAAgAAAAAAAAAAAARAAcAAAAAAAAAAAARAAYAAAAAAAAAAAARAAUAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_7lq7y")
+tile_set = SubResource("TileSet_qvjcy")
 
-[node name="Player" parent="." instance=ExtResource("1_47xqi")]
-position = Vector2(-211, 57)
+[node name="Player" parent="." instance=ExtResource("2_flune")]
+position = Vector2(19, 73)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-8, -11)
+zoom = Vector2(0.5, 0.5)
 
-[node name="coilbra" parent="." instance=ExtResource("4_0rvyl")]
-position = Vector2(247, -110)
+[node name="SummonPanel" parent="Player/Camera2D" instance=ExtResource("4_a1qly")]
+offset_left = -341.0
+offset_top = -185.0
+offset_right = -341.0
+offset_bottom = -185.0
+scale = Vector2(0.57, 0.57)
+
+[node name="coilbra" parent="." instance=ExtResource("3_7yewe")]
+
+[node name="coilbra2" parent="." instance=ExtResource("3_7yewe")]
+position = Vector2(-102, 59)
+
+[node name="Slime" parent="." instance=ExtResource("5_jp777")]
+position = Vector2(-26, -91)
+
+[node name="Slime2" parent="." instance=ExtResource("5_jp777")]
+position = Vector2(-173, -72)
