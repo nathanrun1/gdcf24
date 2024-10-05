@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c7mhfttbgml0" path="res://scenes/player.tscn" id="1_47xqi"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_tx4aq"]
 [ext_resource type="Texture2D" uid="uid://dtoq7af1llk04" path="res://assets/sprites/wall_ph.png" id="2_oeo0e"]
-[ext_resource type="PackedScene" path="res://scenes/coilbra.tscn" id="4_0rvyl"]
+[ext_resource type="PackedScene" uid="uid://ccq0i4e77p8mw" path="res://scenes/slime.tscn" id="3_8e2ad"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_spjg0"]
 texture = ExtResource("2_oeo0e")
@@ -27,5 +27,5 @@ position = Vector2(-56, 117)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="coilbra" parent="." instance=ExtResource("4_0rvyl")]
-position = Vector2(247, -110)
+[node name="Slime" parent="." instance=ExtResource("3_8e2ad")]
+position = Vector2(-89, -32)

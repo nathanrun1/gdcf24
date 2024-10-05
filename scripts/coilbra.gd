@@ -9,6 +9,7 @@ const TOP_SPEED : float = 800
 const TOP_ACC : float = 20
 const TOP_JERK : float = 0.5
 
+const DAMAGE : int = 30
 
 var acc : Vector2 
 var jerk: Vector2

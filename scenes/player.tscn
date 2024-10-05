@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c7mhfttbgml0"]
+[gd_scene load_steps=20 format=3 uid="uid://c7mhfttbgml0"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_f14es"]
 [ext_resource type="Texture2D" uid="uid://c8op4mrxd5tb8" path="res://assets/sprites/player/idle/Player_Idle-1.png" id="2_t5a3u"]
@@ -68,6 +68,23 @@ animations = [{
 radius = 7.0
 height = 34.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyndw"]
+height = 48.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4jxs"]
+bg_color = Color(0.113049, 0.113049, 0.113049, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgrk1"]
+bg_color = Color(0.574235, 0, 0.124595, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_f14es")
 
@@ -79,7 +96,24 @@ frame_progress = 0.669002
 script = ExtResource("14_vxut6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1, 0)
 scale = Vector2(1.4, 1.4)
 shape = SubResource("CapsuleShape2D_d3mom")
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+light_mask = 3
+visibility_layer = 2
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_eyndw")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -35.0
+offset_top = -34.0
+offset_right = 35.0
+offset_bottom = -29.0
+theme_override_styles/background = SubResource("StyleBoxFlat_s4jxs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jgrk1")
+value = 50.0
+show_percentage = false
