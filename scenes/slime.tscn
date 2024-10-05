@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccq0i4e77p8mw"]
+[gd_scene load_steps=7 format=3 uid="uid://ccq0i4e77p8mw"]
 
 [ext_resource type="Texture2D" uid="uid://glimr61usjbb" path="res://assets/sprites/slime/slime_1.png" id="1_b04iu"]
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_hsbgr"]
 [ext_resource type="Texture2D" uid="uid://bxhg228ugsd51" path="res://assets/sprites/slime/slime_2.png" id="2_d3vsp"]
 [ext_resource type="Texture2D" uid="uid://buglo7srg0hnj" path="res://assets/sprites/slime/slime_3.png" id="3_q7or1"]
+[ext_resource type="Script" path="res://scripts/animated_sprite_2d.gd" id="5_w02lo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x81vc"]
 animations = [{
@@ -29,10 +30,14 @@ animations = [{
 script = ExtResource("1_hsbgr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_x81vc")
 frame = 2
 frame_progress = 0.585214
+script = ExtResource("5_w02lo")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-build_mode = 1
-polygon = PackedVector2Array(-8, -12, 4, -12, 8, -2, 15, 3, 13, 16, -14, 16, -16, 5)
+z_index = 1
+position = Vector2(0, 1)
+scale = Vector2(0.580357, 0.580357)
+polygon = PackedVector2Array(-8.61539, -13.7846, 3.44615, -13.7846, 8.61539, -3.44615, 15.5077, 1.72308, 15.5077, 13.7846, 0, 15.5077, -15.5077, 13.7846, -16, 5)

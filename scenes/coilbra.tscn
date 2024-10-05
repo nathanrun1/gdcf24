@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://chpiscon6v44k"]
+
+[ext_resource type="Script" path="res://scripts/coilbra.gd" id="1_optmi"]
+[ext_resource type="Texture2D" uid="uid://cbdqyk8glm1m0" path="res://assets/sprites/coilbra/Charge_Enemy.png" id="2_hupvm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt2ly"]
+size = Vector2(32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ledf5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hupvm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="coilbra" type="CharacterBody2D"]
+script = ExtResource("1_optmi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lt2ly")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ledf5")
