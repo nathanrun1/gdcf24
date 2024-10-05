@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://n3unrhi0qwhx"]
+[gd_scene load_steps=9 format=3 uid="uid://n3unrhi0qwhx"]
 
 [ext_resource type="PackedScene" uid="uid://c7mhfttbgml0" path="res://scenes/player.tscn" id="1_47xqi"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_tx4aq"]
 [ext_resource type="Texture2D" uid="uid://dtoq7af1llk04" path="res://assets/sprites/wall_ph.png" id="2_oeo0e"]
 [ext_resource type="PackedScene" uid="uid://ccq0i4e77p8mw" path="res://scenes/slime.tscn" id="3_8e2ad"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="5_ga2yi"]
+[ext_resource type="PackedScene" uid="uid://b15nlhf6iuwtc" path="res://scenes/summon_panel.tscn" id="6_svkrf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_spjg0"]
 texture = ExtResource("2_oeo0e")
@@ -18,7 +20,6 @@ sources/0 = SubResource("TileSetAtlasSource_spjg0")
 script = ExtResource("1_tx4aq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_7lq7y")
@@ -27,3 +28,14 @@ tile_set = SubResource("TileSet_7lq7y")
 
 [node name="Player" parent="." instance=ExtResource("1_47xqi")]
 position = Vector2(61, -43)
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+script = ExtResource("5_ga2yi")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="SummonPanel" parent="." instance=ExtResource("6_svkrf")]
+offset_left = -576.0
+offset_top = -336.0
+offset_right = -576.0
+offset_bottom = -336.0

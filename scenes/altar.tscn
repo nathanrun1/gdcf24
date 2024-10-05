@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6moqch6wl8es"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dok1a"]
+
+[node name="Altar" type="Sprite2D"]
+position = Vector2(25, 21)
+scale = Vector2(22.5, 23.5)
+texture = SubResource("PlaceholderTexture2D_dok1a")
