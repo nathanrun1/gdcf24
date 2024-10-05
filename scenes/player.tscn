@@ -75,7 +75,8 @@ script = ExtResource("1_f14es")
 scale = Vector2(1.4, 1.4)
 sprite_frames = SubResource("SpriteFrames_kdwvi")
 animation = &"move"
-frame_progress = 0.669002
+frame = 7
+frame_progress = 0.513924
 script = ExtResource("14_vxut6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
