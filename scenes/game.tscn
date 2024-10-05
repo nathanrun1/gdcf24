@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c7mhfttbgml0" path="res://scenes/player.tscn" id="1_47xqi"]
 [ext_resource type="Texture2D" uid="uid://dtoq7af1llk04" path="res://assets/sprites/wall_ph.png" id="2_oeo0e"]
-[ext_resource type="PackedScene" uid="uid://ccq0i4e77p8mw" path="res://scenes/slime.tscn" id="3_8e2ad"]
+[ext_resource type="PackedScene" uid="uid://chpiscon6v44k" path="res://scenes/coilbra.tscn" id="4_0rvyl"]
 
 [sub_resource type="GDScript" id="GDScript_3ofif"]
 script/source = "extends Node2D
@@ -27,19 +27,7 @@ zoom = Vector2(4, 4)
 tile_set = SubResource("TileSet_7lq7y")
 
 [node name="Player" parent="." instance=ExtResource("1_47xqi")]
-position = Vector2(61, -43)
+position = Vector2(-211, 57)
 
-[node name="Slime" parent="." instance=ExtResource("3_8e2ad")]
-position = Vector2(202, -115)
-
-[node name="Slime2" parent="." instance=ExtResource("3_8e2ad")]
-position = Vector2(-68, 96)
-
-[node name="Slime4" parent="." instance=ExtResource("3_8e2ad")]
-position = Vector2(-76, -94)
-
-[node name="Slime3" parent="." instance=ExtResource("3_8e2ad")]
-position = Vector2(136, 65)
-
-[node name="Slime5" parent="." instance=ExtResource("3_8e2ad")]
-position = Vector2(-156, 15)
+[node name="coilbra" parent="." instance=ExtResource("4_0rvyl")]
+position = Vector2(247, -110)

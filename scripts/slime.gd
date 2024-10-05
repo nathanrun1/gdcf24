@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Slime
 
 @onready var sprite_anm = $AnimatedSprite2D
 @onready var player := $"../Player"
@@ -10,7 +11,7 @@ func _physics_process(delta: float) -> void:
 	_play_animation()
 	
 	
-	var direction : Vector2 = global_position.direction_to(player.global_position)
+	var direction : Vector2 = global_position.direction_to(player.global_position).normalized()
 	velocity = SPEED * direction
 	
 	if (direction.x > 0): # right facing

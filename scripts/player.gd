@@ -2,18 +2,21 @@ extends CharacterBody2D
 class_name Player
 
 @onready var sprite_anm = $AnimatedSprite2D
-const SPEED = 100
+
+const SPEED : int = 200
 
 func _physics_process(delta: float) -> void:
+	
 	_play_animation()
 	
 	
-	var direction : Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = direction * SPEED
+	var direction : Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
+	
+	velocity = SPEED * direction
 	
 	if (direction.x > 0): # right facing
 		sprite_anm.transform("right")
-	else: #left facing
+	elif (direction.x < 0): #left facing
 		sprite_anm.transform("left")
 	
 	
