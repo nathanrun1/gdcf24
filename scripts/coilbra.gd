@@ -22,7 +22,7 @@ var player_pos_at_charge : Vector2
 var direction: Vector2
 
 
-func _physics_process(delta: float) -> void:	
+func _physics_process(delta: float) -> void:
 	_play_animation()
 	if stagger: 
 		stagger_timer -= delta
