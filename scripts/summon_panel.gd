@@ -8,6 +8,9 @@ var pattern: Array[int]
 @onready var is_drawing: bool = false
 @onready var can_draw: bool = true
 
+@export_category("DEBUG")
+@export var reset_after_complete: bool
+
 signal drawing_complete(pattern)
 
 ## Resets the summoning panel for reuse
@@ -54,6 +57,9 @@ func _finish_drawing() -> void:
 	is_drawing = false
 	can_draw = false
 	drawing_complete.emit(pattern)
+	# DEBUG
+	if reset_after_complete:
+		reset()
 
 func _reset_drawing_line() -> void:
 	if drawing_line:
