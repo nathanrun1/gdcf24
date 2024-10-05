@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccq0i4e77p8mw"]
+
+[ext_resource type="Texture2D" uid="uid://glimr61usjbb" path="res://assets/sprites/slime/slime_1.png" id="1_b04iu"]
+[ext_resource type="Script" path="res://scripts/slime.gd" id="1_hsbgr"]
+[ext_resource type="Texture2D" uid="uid://bxhg228ugsd51" path="res://assets/sprites/slime/slime_2.png" id="2_d3vsp"]
+[ext_resource type="Texture2D" uid="uid://buglo7srg0hnj" path="res://assets/sprites/slime/slime_3.png" id="3_q7or1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x81vc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_b04iu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d3vsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q7or1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d3vsp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Slime" type="CharacterBody2D"]
+script = ExtResource("1_hsbgr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x81vc")
+frame = 2
+frame_progress = 0.585214
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(-8, -12, 4, -12, 8, -2, 15, 3, 15, 13, 7, 16, -9, 16, -16, 13, -16, 5)
