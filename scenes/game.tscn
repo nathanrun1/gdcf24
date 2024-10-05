@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c7mhfttbgml0" path="res://scenes/player.tscn" id="1_47xqi"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_tx4aq"]
 [ext_resource type="Texture2D" uid="uid://dtoq7af1llk04" path="res://assets/sprites/wall_ph.png" id="2_oeo0e"]
-[ext_resource type="PackedScene" uid="uid://chpiscon6v44k" path="res://scenes/coilbra.tscn" id="4_0rvyl"]
+[ext_resource type="PackedScene" path="res://scenes/coilbra.tscn" id="4_0rvyl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_spjg0"]
 texture = ExtResource("2_oeo0e")
@@ -15,6 +15,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_spjg0")
 
 [node name="Game" type="Node2D"]
+position = Vector2(-4, 0)
 script = ExtResource("1_tx4aq")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -22,7 +23,7 @@ tile_map_data = PackedByteArray("AADu/wkAAAAAAAAAAADv/wkAAAAAAAAAAADw/wkAAAAAAAA
 tile_set = SubResource("TileSet_7lq7y")
 
 [node name="Player" parent="." instance=ExtResource("1_47xqi")]
-position = Vector2(-211, 57)
+position = Vector2(-56, 117)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

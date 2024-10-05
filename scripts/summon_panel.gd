@@ -1,5 +1,5 @@
-extends Panel
-class_name SummoningPanel
+class_name SummoningPanel extends Panel
+
 
 const SUMMON_NODE_CENTER_OFFSET: Vector2 = Vector2(22, 22)
 

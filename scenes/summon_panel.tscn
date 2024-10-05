@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvmf7a1kwdnhk"]
 
 [ext_resource type="Script" path="res://scripts/summon_panel.gd" id="1_0yxa3"]
-[ext_resource type="PackedScene" uid="uid://rmhofpcinoks" path="res://scenes/summon_node.tscn" id="1_rqwbo"]
+[ext_resource type="PackedScene" uid="uid://d4nikr5a47odb" path="res://scenes/summon_node.tscn" id="1_rqwbo"]
 
 [node name="SummonPanel" type="Control"]
 layout_mode = 3
@@ -17,7 +17,7 @@ layout_mode = 0
 offset_left = 762.0
 offset_top = 23.0
 offset_right = 1123.0
-offset_bottom = 619.0
+offset_bottom = 382.0
 mouse_filter = 1
 script = ExtResource("1_0yxa3")
 reset_after_complete = true
