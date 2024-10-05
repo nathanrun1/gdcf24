@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=3 uid="uid://b15nlhf6iuwtc"]
+
+[ext_resource type="Script" path="res://scenes/summon_panel.gd" id="1_0yxa3"]
+[ext_resource type="PackedScene" uid="uid://d4nikr5a47odb" path="res://scenes/summon_node.tscn" id="1_rqwbo"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SummonPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 762.0
+offset_top = 23.0
+offset_right = 1123.0
+offset_bottom = 619.0
+script = ExtResource("1_0yxa3")
+
+[node name="SummoningNode" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
+layout_mode = 2
+offset_left = 31.0
+offset_top = 28.0
+offset_right = 71.0
+offset_bottom = 44.0
+scale = Vector2(1.09913, 2.76116)
+
+[node name="SummoningNode2" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
+layout_mode = 2
+offset_left = 287.0
+offset_top = 28.0
+offset_right = 327.0
+offset_bottom = 44.0
+scale = Vector2(1.09913, 2.76116)
+
+[node name="SummoningNode3" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
+layout_mode = 2
+offset_left = 159.0
+offset_top = 28.0
+offset_right = 199.0
+offset_bottom = 44.0
+scale = Vector2(1.09913, 2.76116)
+
+[node name="SummoningNode4" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
+layout_mode = 2
+offset_left = 31.0
+offset_top = 153.0
+offset_right = 71.0
+offset_bottom = 169.0
+scale = Vector2(1.09913, 2.76116)
+
+[node name="SummoningNode5" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
+layout_mode = 2
+offset_left = 287.0
+offset_top = 153.0
+offset_right = 327.0
+offset_bottom = 169.0
+scale = Vector2(1.09913, 2.76116)
+
+[node name="SummoningNode6" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
+layout_mode = 2
+offset_left = 159.0
+offset_top = 153.0
+offset_right = 199.0
+offset_bottom = 169.0
+scale = Vector2(1.09913, 2.76116)
+
+[node name="SummoningNode7" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
+layout_mode = 2
+offset_left = 31.0
+offset_top = 280.0
+offset_right = 71.0
+offset_bottom = 296.0
+scale = Vector2(1.09913, 2.76116)
+
+[node name="SummoningNode8" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
+layout_mode = 2
+offset_left = 287.0
+offset_top = 280.0
+offset_right = 327.0
+offset_bottom = 296.0
+scale = Vector2(1.09913, 2.76116)
+
+[node name="SummoningNode9" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
+layout_mode = 2
+offset_left = 159.0
+offset_top = 280.0
+offset_right = 199.0
+offset_bottom = 296.0
+scale = Vector2(1.09913, 2.76116)
+
+[connection signal="clicked" from="SummonPanel/SummoningNode" to="SummonPanel" method="_on_summoning_node_clicked"]
+[connection signal="clicked" from="SummonPanel/SummoningNode2" to="SummonPanel" method="_on_summoning_node_clicked"]
+[connection signal="clicked" from="SummonPanel/SummoningNode3" to="SummonPanel" method="_on_summoning_node_clicked"]
+[connection signal="clicked" from="SummonPanel/SummoningNode4" to="SummonPanel" method="_on_summoning_node_clicked"]
+[connection signal="clicked" from="SummonPanel/SummoningNode5" to="SummonPanel" method="_on_summoning_node_clicked"]
+[connection signal="clicked" from="SummonPanel/SummoningNode6" to="SummonPanel" method="_on_summoning_node_clicked"]
+[connection signal="clicked" from="SummonPanel/SummoningNode7" to="SummonPanel" method="_on_summoning_node_clicked"]
+[connection signal="clicked" from="SummonPanel/SummoningNode8" to="SummonPanel" method="_on_summoning_node_clicked"]
+[connection signal="clicked" from="SummonPanel/SummoningNode9" to="SummonPanel" method="_on_summoning_node_clicked"]
