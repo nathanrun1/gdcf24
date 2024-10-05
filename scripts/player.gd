@@ -4,7 +4,8 @@ class_name Player
 @onready var sprite_anm = $AnimatedSprite2D
 @onready var health_bar = $HealthBar
 
-const DAMAGE : int = 0
+
+signal zero_health
 
 const WALK_SPEED: int = 200
 var speed : int = WALK_SPEED
@@ -24,6 +25,8 @@ func _ready():
 		summon_panel = summon_panel_p.get_child(0)
 		summon_panel.summon.connect(_on_summon)
 		summon_panel.visible = false
+	health_bar.value = health
+	
 
 func _on_summon(pattern):
 	print(str(pattern))
@@ -46,6 +49,8 @@ func _physics_process(delta: float) -> void:
 	
 	if i_frame_count > 0:
 		i_frame_count -= 1
+		if i_frame_count == I_FRAME - 5:
+			$AnimatedSprite2D.modulate = Color.WHITE
 		if i_frame_count == 0:
 			$HurtBox/CollisionShape2D.disabled = false
 	
@@ -53,12 +58,16 @@ func _physics_process(delta: float) -> void:
 	velocity = speed * direction
 	
 	var overlapping_mobs = $HurtBox.get_overlapping_bodies()
-	if overlapping_mobs.size() > 1:
+	
+	if overlapping_mobs.size() > 0:
 		i_frame_count = I_FRAME
 		$HurtBox/CollisionShape2D.disabled = true
+		$AnimatedSprite2D.modulate = Color.CRIMSON
 	for enemy in overlapping_mobs:
 		health -= enemy.DAMAGE
 		health_bar.value = health
+		if (health <= 0):
+			zero_health.emit()
 
 	
 	
