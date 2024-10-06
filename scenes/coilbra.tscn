@@ -1,4 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjemw6wb0u664"]
+
+[gd_scene load_steps=10 format=3 uid="uid://chpiscon6v44k"]
+
 
 [ext_resource type="Script" path="res://scripts/enemies/coilbra.gd" id="1_5rlyq"]
 [ext_resource type="PackedScene" uid="uid://dxwyhvt14bxa6" path="res://scenes/number_display.tscn" id="2_2xn8d"]
