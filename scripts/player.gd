@@ -7,35 +7,40 @@ const WALK_SPEED: int = 200
 var speed : int = WALK_SPEED
 var direction : Vector2 = Vector2.ZERO
 
-var summon_panel: SummoningPanel = null
-var summon_panel_open = false
+# Spells
+var freeze_spell_scene = preload("res://scenes/freeze.tscn")
+
+@export var summon_interface: SummonInterface
 
 func _ready():
-	var summon_panel_p = get_node_or_null("Camera2D/SummonPanel")
-	if (summon_panel_p):
-		summon_panel = summon_panel_p.get_child(0)
-		summon_panel.summon.connect(_on_summon)
-		summon_panel.visible = false
+	summon_interface.spell.connect(_on_spell)
 
-func _on_summon(pattern):
-	print(str(pattern))
+func _on_spell(spellname, direction):
+	if spellname == "Freeze":
+		var new_freeze = freeze_spell_scene.instantiate()
+		add_child(new_freeze)
+		new_freeze.rotation_degrees = direction
+		new_freeze.execute()
+		print(direction)
+		
 
 func _input(input: InputEvent):
 	if input.is_action_pressed("summon_panel_open_toggle"):
-		if (summon_panel):
-			summon_panel.visible = not summon_panel.visible
-			summon_panel_open = not summon_panel_open
-			if (summon_panel_open):
-				speed = WALK_SPEED / 2.5
-			else:
-				speed = WALK_SPEED
+		summon_interface.toggle_panel()
+		if (summon_interface.is_panel_open()):
+			summon_interface.reset_panel()
+			speed = WALK_SPEED / 2.5
+			sprite_anm.speed_scale = 0.6
+		else:
+			speed = WALK_SPEED
+			sprite_anm.speed_scale = 1
 	
 
 func _physics_process(delta: float) -> void:
 	_play_animation()
-	direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
+	direction = Input.get_vector("player_left", "player_right", "player_up", "player_down").normalized()
 	velocity = speed * direction
-	if not summon_panel_open:
+	if not summon_interface.is_panel_open():
 		# Summoning panel is not open
 		if (direction.x > 0): # right facing
 			sprite_anm.transform("right")

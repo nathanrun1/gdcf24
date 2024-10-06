@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdy50csrpwm0r"]
+
+[ext_resource type="Texture2D" uid="uid://bax68ybwxsptr" path="res://assets/sprites/selector.png" id="1_4ubor"]
+
+[node name="SummonNodeSelector" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.285, 1.285)
+texture = ExtResource("1_4ubor")
