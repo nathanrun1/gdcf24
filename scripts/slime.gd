@@ -4,7 +4,8 @@ class_name Slime
 @onready var sprite_anm = $AnimatedSprite2D
 @onready var player := $"../Player"
 
-const SPEED : int = 35;
+const DAMAGE : int = 15
+const SPEED : int = 35
 
 
 func _physics_process(delta: float) -> void:

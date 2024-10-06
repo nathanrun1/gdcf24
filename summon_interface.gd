@@ -10,14 +10,14 @@ const SPELL_PATTERNS = {
 }
 
 const DIRECTION_PATTERNS = {
-	[[0, 7], [2, 7]]: "Up",
-	[[2, 3], [3, 8]]: "Right",
-	[[1, 6], [1, 8]]: "Down",
-	[[0, 5], [5, 6]]: "Left",
-	[[1, 8], [3, 8]]: "UpLeft",
+	[[0, 7], [2, 7]]: "Down",
+	[[2, 3], [3, 8]]: "Left",
+	[[1, 6], [1, 8]]: "Up",
+	[[0, 5], [5, 6]]: "Right",
+	[[1, 8], [3, 8]]: "DownLeft",
 	[[1, 6], [5, 6]]: "UpRight",
-	[[0, 5], [0, 7]]: "DownRight",
-	[[2, 3], [2, 7]]: "DownLeft"
+	[[0, 5], [0, 7]]: "UpLeft",
+	[[2, 3], [2, 7]]: "DownRight"
 }
 
 const DIRECTION_ROTATIONS = {
