@@ -7,18 +7,20 @@ class_name FireBallSpell extends Area2D
 var is_executing := false
 
 func execute():
-	$CPUParticles2D.emitting = true
-	is_executing = true
-	await get_tree().create_timer(1.5).timeout
-	is_executing = false
-	queue_free()
+	is_executing = true;
+	
+	
 
 func _physics_process(delta: float) -> void:
+
+	
 	if is_executing:
+		
+		position.x += 1
 		print("fire ball executing")
 		for body in get_overlapping_bodies():
 			print(body)
 			if body is Enemy:
 				print(body)
 				# todo: change this to enemy damage
-				#body.freeze(2)
+				body.take_damage(10)

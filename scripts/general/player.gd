@@ -21,6 +21,7 @@ var i_frame_count: float = 0
 
 # Spells
 var freeze_spell_scene = preload("res://scenes/freeze.tscn")
+var fireball_spell_scene = preload("res://scenes/fireball.tscn")
 
 @export var summon_interface: SummonInterface
 
@@ -35,6 +36,11 @@ func _on_spell(spellname, direction):
 		add_child(new_freeze)
 		new_freeze.rotation_degrees = direction
 		new_freeze.execute()
+	if spellname == "Fireball":
+		var new_fireball = fireball_spell_scene.instantiate()
+		add_child(new_fireball)
+		new_fireball.rotation_degrees = direction
+		new_fireball.execute()
 		
 
 func _input(input: InputEvent):

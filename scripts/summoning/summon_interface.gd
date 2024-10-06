@@ -17,7 +17,8 @@ enum SUMMON_TYPE {SPELL,ENEMY}
 const ENEMY_SUMMON_OFFSET = 50
 
 const SPELL_PATTERNS = {
-	[[0, 1], [1, 2], [2, 4], [4, 6], [6, 7], [7, 8]]: "Freeze"
+	[[0, 1], [1, 2], [2, 4], [4, 6], [6, 7], [7, 8]]: "Freeze",
+	[[0, 1]]: "Fireball"
 }
 
 const ENEMY_PATTERNS = {
