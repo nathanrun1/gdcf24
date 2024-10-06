@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bax68ybwxsptr"
-path="res://.godot/imported/selector.png-d0018707617902c3e886c6fbf4977608.ctex"
+uid="uid://b767s0adb431e"
+path="res://.godot/imported/Fire_Ball.png-7b426f617e5dd20df921a5d7f1edd75b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/selector.png"
-dest_files=["res://.godot/imported/selector.png-d0018707617902c3e886c6fbf4977608.ctex"]
+source_file="res://assets/sprites/Spells/Fire_Ball.png"
+dest_files=["res://.godot/imported/Fire_Ball.png-7b426f617e5dd20df921a5d7f1edd75b.ctex"]
 
 [params]
 

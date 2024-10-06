@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6l8yqe4f0mq6"
-path="res://.godot/imported/summon_node.png-7525fa64f1dde07f55cb139fd23a80e2.ctex"
+uid="uid://bhg6x81suam64"
+path="res://.godot/imported/spawn_smoke_1.png-d0af3bc90a3ec880870d4d07fc5a5040.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/summon_node.png"
-dest_files=["res://.godot/imported/summon_node.png-7525fa64f1dde07f55cb139fd23a80e2.ctex"]
+source_file="res://assets/sprites/tome/spawn_smoke_1.png"
+dest_files=["res://.godot/imported/spawn_smoke_1.png-d0af3bc90a3ec880870d4d07fc5a5040.ctex"]
 
 [params]
 
