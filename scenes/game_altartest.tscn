@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://43m13gq5883u"]
+[gd_scene load_steps=7 format=4 uid="uid://lgcdokk1eist"]
 
 [ext_resource type="Texture2D" uid="uid://dtoq7af1llk04" path="res://assets/sprites/wall_ph.png" id="1_4tieh"]
 [ext_resource type="PackedScene" uid="uid://c7mhfttbgml0" path="res://scenes/player.tscn" id="2_flune"]
 [ext_resource type="PackedScene" uid="uid://dvmf7a1kwdnhk" path="res://scenes/summon_panel.tscn" id="4_a1qly"]
-[ext_resource type="PackedScene" uid="uid://dk0scib6jso1f" path="res://scenes/summon_interface.tscn" id="4_rx3ep"]
+[ext_resource type="PackedScene" path="res://scenes/summon_interface.tscn" id="4_rx3ep"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwstx"]
 texture = ExtResource("1_4tieh")
