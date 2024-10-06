@@ -1,9 +1,7 @@
 extends Enemy
-class_name coilbra
+class_name Coilbra
 
 @onready var sprite_anm = $AnimatedSprite2D
-@onready var collision_frame = $CollisionShape2D
-@onready var Hurtbox = $Hurtbox
 
 var top_speed : float = 800
 var top_acc : float = 100
@@ -62,7 +60,6 @@ func _physics_process(delta: float) -> void:
 		sprite_anm.flip_h = false
 
 	var collider = move_and_collide(velocity * delta)
-	print(acc.length())
 	if collider:
 		stagger = true
 		stagger_timer = STAGGER_TIME
@@ -70,7 +67,6 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		acc = Vector2.ZERO
 		if (collider.get_collider() == player):
-			print(charge_damage * strength)
 			damage_player(charge_damage * strength)
 
 	#var collisions = Hurtbox.get_overlapping_bodies()

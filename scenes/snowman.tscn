@@ -1,9 +1,12 @@
+
 [gd_scene load_steps=13 format=3 uid="uid://daqln4o3qbovu"]
+
 
 [ext_resource type="Texture2D" uid="uid://bpvwlmx32pkji" path="res://assets/sprites/snowman/shoot/Snowman_Shoot-1.png" id="1_co31x"]
 [ext_resource type="Script" path="res://scripts/enemies/snowman.gd" id="1_rbgnv"]
 [ext_resource type="PackedScene" path="res://scenes/bullet.tscn" id="2_00wov"]
 [ext_resource type="Texture2D" uid="uid://c8lwpm2ncable" path="res://assets/sprites/snowman/shoot/Snowman_Shoot-2.png" id="2_p0ey1"]
+[ext_resource type="PackedScene" uid="uid://dxwyhvt14bxa6" path="res://scenes/number_display.tscn" id="3_uaeq1"]
 [ext_resource type="Texture2D" uid="uid://dyxcuwlrudsq2" path="res://assets/sprites/snowman/shoot/Snowman_Shoot-3.png" id="3_uxy7r"]
 [ext_resource type="Texture2D" uid="uid://dgknujba2k2f7" path="res://assets/sprites/snowman/shoot/Snowman_Shoot-4.png" id="4_q7540"]
 [ext_resource type="Texture2D" uid="uid://vepg3whvxutl" path="res://assets/sprites/snowman/shoot/Snowman_Shoot-5.png" id="5_34s2x"]
@@ -70,9 +73,24 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8gcj"]
+bg_color = Color(0.113049, 0.113049, 0.113049, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkel2"]
+bg_color = Color(0.574235, 0, 0.124595, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [node name="snowman" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_rbgnv")
 Bullet = ExtResource("2_00wov")
+number_popup_scene = ExtResource("3_uaeq1")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_crp33")
@@ -84,3 +102,14 @@ frame_progress = 0.632642
 
 [node name="Nose" type="Marker2D" parent="."]
 position = Vector2(0, 6)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -14.0
+offset_top = -21.0
+offset_right = 13.93
+offset_bottom = -17.265
+theme_override_styles/background = SubResource("StyleBoxFlat_a8gcj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xkel2")
+max_value = 75.0
+value = 75.0
+show_percentage = false

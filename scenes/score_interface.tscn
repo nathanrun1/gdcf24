@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://wbhng42dn6dg"]
+
+[ext_resource type="Script" path="res://scripts/score_interface.gd" id="1_p4inp"]
+
+[node name="ScoreInterface" type="Node2D"]
+script = ExtResource("1_p4inp")

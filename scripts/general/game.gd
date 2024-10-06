@@ -10,11 +10,11 @@ func _process(delta: float):
 			summon_direction = Vector2(-50, 0)
 		
 		
-		if Input.is_action_just_pressed("summon_slime"):
-			var summoned_slime = preload("res://scenes/slime.tscn").instantiate()
-			summoned_slime.position = player.global_position + summon_direction
-			add_child(summoned_slime)
-		if Input.is_action_just_pressed("summon_coilbra"):
-			var summoned_coilbra = preload("res://scenes/coilbra.tscn").instantiate()
-			summoned_coilbra.position = player.global_position + summon_direction
-			add_child(summoned_coilbra)
+		#if Input.is_action_just_pressed("summon_slime"):
+			#var summoned_slime = preload("res://scenes/slime.tscn").instantiate()
+			#summoned_slime.position = player.global_position + summon_direction
+			#add_child(summoned_slime)
+		#if Input.is_action_just_pressed("summon_coilbra"):
+			#var summoned_coilbra = preload("res://scenes/coilbra.tscn").instantiate()
+			#summoned_coilbra.position = player.global_position + summon_direction
+			#add_child(summoned_coilbra)

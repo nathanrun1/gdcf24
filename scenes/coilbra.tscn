@@ -1,6 +1,9 @@
+
 [gd_scene load_steps=10 format=3 uid="uid://chpiscon6v44k"]
 
+
 [ext_resource type="Script" path="res://scripts/enemies/coilbra.gd" id="1_5rlyq"]
+[ext_resource type="PackedScene" uid="uid://dxwyhvt14bxa6" path="res://scenes/number_display.tscn" id="2_2xn8d"]
 [ext_resource type="Texture2D" uid="uid://c7w80wdg7j6jx" path="res://assets/sprites/coilbra/Idle/Coilbra_Idle-1.png" id="2_mb4ra"]
 [ext_resource type="Texture2D" uid="uid://dvy3kr3dk7kcc" path="res://assets/sprites/coilbra/Idle/Coilbra_Idle-2.png" id="3_m14ad"]
 [ext_resource type="Texture2D" uid="uid://dgd6bktm88w4w" path="res://assets/sprites/coilbra/Roll/Coilbra_Roll-1.png" id="4_edva7"]
@@ -41,9 +44,24 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ed54"]
+bg_color = Color(0.113049, 0.113049, 0.113049, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_suqc1"]
+bg_color = Color(0.574235, 0, 0.124595, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [node name="coilbra" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 3
 script = ExtResource("1_5rlyq")
+number_popup_scene = ExtResource("2_2xn8d")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 z_index = 2
@@ -54,3 +72,14 @@ shape = SubResource("CircleShape2D_ufbhn")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ledf5")
 animation = &"Idle"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -14.0
+offset_top = -21.0
+offset_right = 13.93
+offset_bottom = -17.265
+theme_override_styles/background = SubResource("StyleBoxFlat_3ed54")
+theme_override_styles/fill = SubResource("StyleBoxFlat_suqc1")
+max_value = 150.0
+value = 150.0
+show_percentage = false
