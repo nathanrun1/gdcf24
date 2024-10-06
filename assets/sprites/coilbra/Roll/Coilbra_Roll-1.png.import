@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbdqyk8glm1m0"
-path="res://.godot/imported/Charge_Enemy.png-30861d1a0601b72136a1784d21d802b0.ctex"
+uid="uid://dgd6bktm88w4w"
+path="res://.godot/imported/Coilbra_Roll-1.png-04ab8df6d6fd7bf739e8cb9269fb957e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/coilbra/Charge_Enemy.png"
-dest_files=["res://.godot/imported/Charge_Enemy.png-30861d1a0601b72136a1784d21d802b0.ctex"]
+source_file="res://assets/sprites/coilbra/Roll/Coilbra_Roll-1.png"
+dest_files=["res://.godot/imported/Coilbra_Roll-1.png-04ab8df6d6fd7bf739e8cb9269fb957e.ctex"]
 
 [params]
 
