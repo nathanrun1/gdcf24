@@ -1,7 +1,6 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjemw6wb0u664"]
 
-[gd_scene load_steps=11 format=3 uid="uid://chpiscon6v44k"]
-
-[ext_resource type="Script" path="res://scripts/coilbra.gd" id="1_optmi"]
+[ext_resource type="Script" path="res://scripts/enemies/coilbra.gd" id="1_5rlyq"]
 [ext_resource type="Texture2D" uid="uid://c7w80wdg7j6jx" path="res://assets/sprites/coilbra/Idle/Coilbra_Idle-1.png" id="2_mb4ra"]
 [ext_resource type="Texture2D" uid="uid://dvy3kr3dk7kcc" path="res://assets/sprites/coilbra/Idle/Coilbra_Idle-2.png" id="3_m14ad"]
 [ext_resource type="Texture2D" uid="uid://dgd6bktm88w4w" path="res://assets/sprites/coilbra/Roll/Coilbra_Roll-1.png" id="4_edva7"]
@@ -9,9 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dqmcp1rhxnes8" path="res://assets/sprites/coilbra/Roll/Coilbra_Roll-3.png" id="6_d1a5w"]
 [ext_resource type="Texture2D" uid="uid://3yqe278lxuyv" path="res://assets/sprites/coilbra/Roll/Coilbra_Roll-4.png" id="7_j82cm"]
 
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oov0"]
-size = Vector2(32, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ufbhn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ledf5"]
 animations = [{
@@ -44,24 +41,16 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikkjc"]
-size = Vector2(32, 32)
-
 [node name="coilbra" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 3
 script = ExtResource("1_5rlyq")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_8oov0")
+z_index = 2
+position = Vector2(-1, 1)
+scale = Vector2(1.16797, 1.06177)
+shape = SubResource("CircleShape2D_ufbhn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ledf5")
 animation = &"Idle"
-frame_progress = 0.0523028
-
-[node name="Hurtbox" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource("RectangleShape2D_ikkjc")

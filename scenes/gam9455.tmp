@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=4 uid="uid://43m13gq5883u"]
+
+[ext_resource type="Texture2D" uid="uid://dtoq7af1llk04" path="res://assets/sprites/wall_ph.png" id="1_4tieh"]
+[ext_resource type="PackedScene" uid="uid://c7mhfttbgml0" path="res://scenes/player.tscn" id="2_flune"]
+[ext_resource type="PackedScene" uid="uid://dvmf7a1kwdnhk" path="res://scenes/summon_panel.tscn" id="4_a1qly"]
+[ext_resource type="PackedScene" uid="uid://dk0scib6jso1f" path="res://scenes/summon_interface.tscn" id="4_rx3ep"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwstx"]
+texture = ExtResource("1_4tieh")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_qvjcy"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_kwstx")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_crp33"]
+radius = 15.0
+
+[node name="GameAltartest" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." groups=["obstacles"]]
+light_mask = 1048575
+position = Vector2(8, 4)
+tile_map_data = PackedByteArray("AADu/wkAAAAAAAAAAADv/wkAAAAAAAAAAADw/wkAAAAAAAAAAADx/wkAAAAAAAAAAADy/wkAAAAAAAAAAADz/wkAAAAAAAAAAAD0/wkAAAAAAAAAAAD1/wkAAAAAAAAAAAD2/wkAAAAAAAAAAAD3/wkAAAAAAAAAAAD4/wkAAAAAAAAAAAD5/wkAAAAAAAAAAAD6/wkAAAAAAAAAAAD7/wkAAAAAAAAAAAD8/wkAAAAAAAAAAAD9/wkAAAAAAAAAAAD+/wkAAAAAAAAAAAD//wkAAAAAAAAAAAAAAAkAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAADu/wgAAAAAAAAAAADu/wcAAAAAAAAAAADu/wYAAAAAAAAAAADu/wUAAAAAAAAAAADu/wQAAAAAAAAAAADu/wMAAAAAAAAAAADu/wIAAAAAAAAAAADu/wEAAAAAAAAAAADu/wAAAAAAAAAAAADu////AAAAAAAAAADu//7/AAAAAAAAAADu//3/AAAAAAAAAADu//z/AAAAAAAAAADu//v/AAAAAAAAAADu//r/AAAAAAAAAADu//n/AAAAAAAAAADu//j/AAAAAAAAAADu//f/AAAAAAAAAADu//b/AAAAAAAAAADv//b/AAAAAAAAAADw//b/AAAAAAAAAADx//b/AAAAAAAAAADy//b/AAAAAAAAAADz//b/AAAAAAAAAAD0//b/AAAAAAAAAAD1//b/AAAAAAAAAAD2//b/AAAAAAAAAAD3//b/AAAAAAAAAAD4//b/AAAAAAAAAAD5//b/AAAAAAAAAAD6//b/AAAAAAAAAAD7//b/AAAAAAAAAAD8//b/AAAAAAAAAAD9//b/AAAAAAAAAAD+//b/AAAAAAAAAAD///b/AAAAAAAAAAAAAPb/AAAAAAAAAAABAPb/AAAAAAAAAAACAPb/AAAAAAAAAAADAPb/AAAAAAAAAAAEAPb/AAAAAAAAAAAFAPb/AAAAAAAAAAAGAPb/AAAAAAAAAAAHAPb/AAAAAAAAAAAIAPb/AAAAAAAAAAAJAPb/AAAAAAAAAAAKAPb/AAAAAAAAAAALAPb/AAAAAAAAAAAMAPb/AAAAAAAAAAANAPb/AAAAAAAAAAAOAPb/AAAAAAAAAAAPAPb/AAAAAAAAAAAQAPb/AAAAAAAAAAARAPb/AAAAAAAAAAARAPf/AAAAAAAAAAARAPj/AAAAAAAAAAARAPn/AAAAAAAAAAARAPr/AAAAAAAAAAARAPv/AAAAAAAAAAARAPz/AAAAAAAAAAARAP3/AAAAAAAAAAARAP7/AAAAAAAAAAARAP//AAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAARAAMAAAAAAAAAAAARAAQAAAAAAAAAAAARAAgAAAAAAAAAAAARAAcAAAAAAAAAAAARAAYAAAAAAAAAAAARAAUAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_qvjcy")
+
+[node name="SummonInterface" parent="." node_paths=PackedStringArray("summon_panel_p", "player") instance=ExtResource("4_rx3ep")]
+position = Vector2(19, 73)
+rotation = -0.0212818
+scale = Vector2(7.85804, -0.375156)
+summon_panel_p = NodePath("../Player/Camera2D/SummonPanel")
+DEBUG = true
+player = NodePath("../Player")
+
+[node name="Player" parent="." node_paths=PackedStringArray("summon_interface") instance=ExtResource("2_flune")]
+position = Vector2(24, 73)
+scale = Vector2(1, 0.978704)
+summon_interface = NodePath("../SummonInterface")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-8, -11)
+zoom = Vector2(0.5, 0.5)
+
+[node name="SummonPanel" parent="Player/Camera2D" instance=ExtResource("4_a1qly")]
+offset_left = -378.0
+offset_top = 31.0
+offset_right = -374.0
+offset_bottom = 31.0
+scale = Vector2(0.39, 0.39)
+
+[node name="Area2D" type="Area2D" parent="."]
+modulate = Color(0.530059, 0.450496, 0.84855, 1)
+show_behind_parent = true
+top_level = true
+position = Vector2(-171, 68)
+collision_mask = 255
+
+[node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_crp33")

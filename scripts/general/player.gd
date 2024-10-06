@@ -35,7 +35,6 @@ func _on_spell(spellname, direction):
 		add_child(new_freeze)
 		new_freeze.rotation_degrees = direction
 		new_freeze.execute()
-		print(direction)
 		
 
 func _input(input: InputEvent):

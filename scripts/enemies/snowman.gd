@@ -16,6 +16,10 @@ var bullet_speed : int = 550
 
 var acc : Vector2 = Vector2.ZERO
 
+func _ready():
+	health = 75
+	
+
 func _physics_process(delta: float) -> void:
 	_play_animation()
 	
@@ -44,3 +48,7 @@ func _play_animation() -> void:
 		$"..".add_child(b)
 		b.snowman = self
 		b.transform = $Nose.global_transform
+
+func freeze(seconds) -> void:
+	# Snowman can't get frozen!!
+	pass

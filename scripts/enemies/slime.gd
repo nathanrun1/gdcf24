@@ -8,12 +8,17 @@ var speed : int = 35
 var attack_delay_seconds : float = 0.5
 var attack_delay_count : float = 0
 
+func _ready():
+	health = 75
+
 
 func _physics_process(delta: float) -> void:
 	_play_animation()
 	
 	var direction : Vector2 = global_position.direction_to(player.global_position).normalized()
 	velocity = speed * direction
+	if is_frozen:
+		velocity = speed * direction * 0.1
 	
 	if (direction.x > 0): # right facing
 		sprite_anm.transform("right")

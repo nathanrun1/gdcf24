@@ -83,6 +83,8 @@ func _input(input: InputEvent) -> void:
 			_summon_enemy("Snowman", "Left")
 		if input.is_action_pressed("Debug_Summon_Slime"):
 			_summon_enemy("Slime", "Left")
+		if input.is_action_pressed("Debug_Freeze"):
+			spell.emit("Freeze", 0)
 
 func _on_summon(pattern: Array[Array]):
 	if SPELL_PATTERNS.get(pattern) and cur_sequence.is_empty():
@@ -120,6 +122,7 @@ func _summon_enemy(enemy_type: String, direction: String):
 	else:
 		$"..".add_child(enemy)
 		enemy.position = player.global_position + (dir_vector * ENEMY_SUMMON_OFFSET)
+		enemy.freeze(2)
 		# TO ADD!!: PLAY ANIMATION HERE
 	
 
