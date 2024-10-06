@@ -15,9 +15,6 @@ func execute():
 
 func _physics_process(delta: float) -> void:
 	if is_executing:
-		print("executing")
 		for body in get_overlapping_bodies():
-			print(body)
 			if body is Enemy:
-				print(body)
 				body.freeze(2)

@@ -11,6 +11,8 @@ enum SUMMON_TYPE {SPELL,ENEMY}
 @export var slime_scene: PackedScene
 @export var snowman_scene: PackedScene
 @export var charger_scene: PackedScene
+@export_category("Other")
+@export var smoke_entry_scene: PackedScene
 
 const ENEMY_SUMMON_OFFSET = 50
 
@@ -123,7 +125,20 @@ func _summon_enemy(enemy_type: String, direction: String):
 		$"..".add_child(enemy)
 		enemy.position = player.global_position + (dir_vector * ENEMY_SUMMON_OFFSET)
 		enemy.freeze(2)
-		# TO ADD!!: PLAY ANIMATION HERE
+		var smoke_entry = smoke_entry_scene.instantiate()
+		enemy.add_child(smoke_entry)
+		if enemy is Slime:
+			smoke_entry.position = Vector2(0, -10)
+		if enemy is Snowman:
+			smoke_entry.position = Vector2(2, -18)
+		if enemy is Coilbra:
+			smoke_entry.position = Vector2(1, -17)
+		print(smoke_entry)
+		print(smoke_entry.transform)
+		print(smoke_entry.global_position)
+		smoke_entry.play('smoke')
+		
+			
 	
 
 

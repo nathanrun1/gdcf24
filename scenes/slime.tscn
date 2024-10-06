@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccq0i4e77p8mw"]
+[gd_scene load_steps=10 format=3 uid="uid://ccq0i4e77p8mw"]
 
 [ext_resource type="Texture2D" uid="uid://glimr61usjbb" path="res://assets/sprites/slime/slime_1.png" id="1_b04iu"]
 [ext_resource type="Script" path="res://scripts/enemies/slime.gd" id="1_hsbgr"]
 [ext_resource type="Texture2D" uid="uid://bxhg228ugsd51" path="res://assets/sprites/slime/slime_2.png" id="2_d3vsp"]
+[ext_resource type="PackedScene" uid="uid://dxwyhvt14bxa6" path="res://scenes/number_display.tscn" id="2_quq2w"]
 [ext_resource type="Texture2D" uid="uid://buglo7srg0hnj" path="res://assets/sprites/slime/slime_3.png" id="3_q7or1"]
 [ext_resource type="Script" path="res://scripts/general/player_sprite.gd" id="5_w02lo"]
 
@@ -26,9 +27,24 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjm2r"]
+bg_color = Color(0.113049, 0.113049, 0.113049, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwhde"]
+bg_color = Color(0.574235, 0, 0.124595, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [node name="Slime" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 3
 script = ExtResource("1_hsbgr")
+number_popup_scene = ExtResource("2_quq2w")
 
 [node name="Hitbox" type="CollisionPolygon2D" parent="."]
 z_index = 1
@@ -42,3 +58,14 @@ sprite_frames = SubResource("SpriteFrames_x81vc")
 frame = 2
 frame_progress = 0.585214
 script = ExtResource("5_w02lo")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -14.0
+offset_top = -15.0
+offset_right = 13.93
+offset_bottom = -11.265
+theme_override_styles/background = SubResource("StyleBoxFlat_yjm2r")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mwhde")
+max_value = 75.0
+value = 75.0
+show_percentage = false

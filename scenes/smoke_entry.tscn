@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://bqtl6lqu255uw"]
+
+[ext_resource type="Texture2D" uid="uid://brmfpgvyrfne0" path="res://assets/sprites/tome/row-1-column-1.png" id="1_f2uoo"]
+[ext_resource type="Texture2D" uid="uid://cetoqpxnibjqq" path="res://assets/sprites/tome/row-1-column-2.png" id="2_sixvm"]
+[ext_resource type="Texture2D" uid="uid://bxkiay5fxd5x7" path="res://assets/sprites/tome/row-1-column-3.png" id="3_l3l6f"]
+[ext_resource type="Texture2D" uid="uid://bk8bmhl64m5dp" path="res://assets/sprites/tome/row-2-column-1.png" id="4_h5mem"]
+[ext_resource type="Texture2D" uid="uid://4hwid7ayoyhh" path="res://assets/sprites/tome/row-2-column-2.png" id="5_dntr8"]
+[ext_resource type="Texture2D" uid="uid://c41gnrms76sy4" path="res://assets/sprites/tome/row-2-column-3.png" id="6_jefer"]
+[ext_resource type="Script" path="res://scripts/enemies/smoke_entry.gd" id="7_jbde0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tm70j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f2uoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_sixvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l3l6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h5mem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dntr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jefer")
+}],
+"loop": true,
+"name": &"smoke",
+"speed": 16.0
+}]
+
+[node name="SmokeEntry" type="AnimatedSprite2D"]
+z_index = 9
+scale = Vector2(0.045, 0.045)
+sprite_frames = SubResource("SpriteFrames_tm70j")
+animation = &"smoke"
+script = ExtResource("7_jbde0")
