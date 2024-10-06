@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwtd8hkldm17s"]
+
+[ext_resource type="Script" path="res://scripts/enemies/overlap_checker.gd" id="1_a74c6"]
+
+[node name="EnemySpawnChecker" type="Area2D"]
+light_mask = 31
+visibility_layer = 31
+disable_mode = 2
+script = ExtResource("1_a74c6")

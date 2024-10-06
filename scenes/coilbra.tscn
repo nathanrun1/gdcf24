@@ -20,11 +20,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikkjc"]
 size = Vector2(32, 32)
 
-[node name="coilbra" type="CharacterBody2D"]
+[node name="coilbra" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 3
 script = ExtResource("1_5rlyq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8oov0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

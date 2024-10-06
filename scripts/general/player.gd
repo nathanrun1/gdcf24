@@ -16,7 +16,7 @@ var direction : Vector2 = Vector2.ZERO
 var health : int = 100
 var queued_damage : int = 0
 var damage_queued: bool = false
-const I_FRAME_SECONDS : float = 1
+const I_FRAME_SECONDS : float = 0.1
 var i_frame_count: float = 0
 
 # Spells
@@ -62,17 +62,17 @@ func _physics_process(delta: float) -> void:
 	move_and_collide(velocity * delta)
 	# -- Enemy Interaction --
 	if i_frame_count > 0:
+		$AnimatedSprite2D.modulate = Color.CRIMSON
 		if not damage_queued:
 			queued_damage = 0
 		i_frame_count -= delta
-		if i_frame_count <= I_FRAME_SECONDS - 0.1:
-			$AnimatedSprite2D.modulate = Color.WHITE
 		if i_frame_count == 0:
 			$HurtBox/CollisionShape2D.disabled = false
+	else:
+		$AnimatedSprite2D.modulate = Color.WHITE
 	if queued_damage > 0:
 		i_frame_count = I_FRAME_SECONDS
 		health -= queued_damage
-		$AnimatedSprite2D.modulate = Color.CRIMSON
 		queued_damage = 0
 		damage_queued = false
 		health_bar.value = health

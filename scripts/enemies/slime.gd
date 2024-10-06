@@ -1,27 +1,33 @@
-extends CharacterBody2D
+extends Enemy
 class_name Slime
 
 @onready var sprite_anm = $AnimatedSprite2D
-@onready var player := $"../Player"
 
-const DAMAGE : int = 15
-const SPEED : int = 35
+var damage : int = 15
+var speed : int = 35
+var attack_delay_seconds : float = 0.5
+var attack_delay_count : float = 0
 
 
 func _physics_process(delta: float) -> void:
 	_play_animation()
 	
-	
 	var direction : Vector2 = global_position.direction_to(player.global_position).normalized()
-	velocity = SPEED * direction
+	velocity = speed * direction
 	
 	if (direction.x > 0): # right facing
 		sprite_anm.transform("right")
 	else: #left facing
 		sprite_anm.transform("left")
+		
+	if attack_delay_count > 0:
+		attack_delay_count -= delta
 	
-	
-	move_and_collide(velocity * delta)
+	var collider = move_and_collide(velocity * delta)
+	if collider:
+		if (collider.get_collider() == player) and attack_delay_count <= 0:
+			attack_delay_count = attack_delay_seconds
+			damage_player(damage)
 
 
 func _play_animation() -> void:

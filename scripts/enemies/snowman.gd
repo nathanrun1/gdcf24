@@ -1,14 +1,18 @@
-extends CharacterBody2D
+extends Enemy
 class_name Snowman
 
 @onready var sprite_anm = $AnimatedSprite2D
-@onready var player := $"../Player"
+
+@export var Bullet: PackedScene
+
+const SHOOT_FRAME := 15
 
 var shot_damage : int = 10
 var top_speed : float = 800
 var top_acc : float = 5
 var panic_radius : int = 100
 var shoot_delay_seconds : int = 0.5
+var bullet_speed : int = 550
 
 var acc : Vector2 = Vector2.ZERO
 
@@ -23,7 +27,6 @@ func _physics_process(delta: float) -> void:
 	rotation = atan(direction.x / -direction.y) 
 	rotation += PI if direction.y > 0 else 00
 	
-	print(direction.length())
 	if direction.length() <= panic_radius:
 		acc = ndirection * top_acc
 		velocity += acc
@@ -35,3 +38,9 @@ func _physics_process(delta: float) -> void:
 
 func _play_animation() -> void:
 	sprite_anm.play("shoot");
+	if (sprite_anm.frame == SHOOT_FRAME):
+		sprite_anm.frame = 0
+		var b = Bullet.instantiate()
+		$"..".add_child(b)
+		b.snowman = self
+		b.transform = $Nose.global_transform
