@@ -1,7 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://chpiscon6v44k"]
+[gd_scene load_steps=11 format=3 uid="uid://chpiscon6v44k"]
 
 [ext_resource type="Script" path="res://scripts/coilbra.gd" id="1_optmi"]
-[ext_resource type="Texture2D" uid="uid://cbdqyk8glm1m0" path="res://assets/sprites/coilbra/Charge_Enemy.png" id="2_hupvm"]
+[ext_resource type="Texture2D" uid="uid://c7w80wdg7j6jx" path="res://assets/sprites/coilbra/Idle/Coilbra_Idle-1.png" id="2_mb4ra"]
+[ext_resource type="Texture2D" uid="uid://dvy3kr3dk7kcc" path="res://assets/sprites/coilbra/Idle/Coilbra_Idle-2.png" id="3_m14ad"]
+[ext_resource type="Texture2D" uid="uid://dgd6bktm88w4w" path="res://assets/sprites/coilbra/Roll/Coilbra_Roll-1.png" id="4_edva7"]
+[ext_resource type="Texture2D" uid="uid://c6v8gd2fn4xr5" path="res://assets/sprites/coilbra/Roll/Coilbra_Roll-2.png" id="5_driw1"]
+[ext_resource type="Texture2D" uid="uid://dqmcp1rhxnes8" path="res://assets/sprites/coilbra/Roll/Coilbra_Roll-3.png" id="6_d1a5w"]
+[ext_resource type="Texture2D" uid="uid://3yqe278lxuyv" path="res://assets/sprites/coilbra/Roll/Coilbra_Roll-4.png" id="7_j82cm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oov0"]
 size = Vector2(32, 32)
@@ -10,11 +15,31 @@ size = Vector2(32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_hupvm")
+"texture": ExtResource("2_mb4ra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m14ad")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_edva7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_driw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_d1a5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j82cm")
+}],
+"loop": true,
+"name": &"Roll",
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikkjc"]
@@ -29,6 +54,8 @@ shape = SubResource("RectangleShape2D_8oov0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ledf5")
+animation = &"Idle"
+frame_progress = 0.0523028
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0

@@ -67,7 +67,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _play_animation() -> void:
-	sprite_anm.play("default");
+	if true:
+		sprite_anm.play("Idle")
+	if false:
+		sprite_anm.play("Roll")
 
 
 func _charge(direction: Vector2) -> void:
