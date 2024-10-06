@@ -10,6 +10,7 @@ var attack_delay_count : float = 0
 
 func _ready():
 	health = 75
+	value = 50
 
 
 func _physics_process(delta: float) -> void:

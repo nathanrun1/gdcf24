@@ -18,6 +18,7 @@ var acc : Vector2 = Vector2.ZERO
 
 func _ready():
 	health = 75
+	value = 75
 	
 
 func _physics_process(delta: float) -> void:

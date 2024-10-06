@@ -124,7 +124,6 @@ func _summon_enemy(enemy_type: String, direction: String):
 	else:
 		$"..".add_child(enemy)
 		enemy.position = player.global_position + (dir_vector * ENEMY_SUMMON_OFFSET)
-		enemy.freeze(2)
 		var smoke_entry = smoke_entry_scene.instantiate()
 		enemy.add_child(smoke_entry)
 		if enemy is Slime:

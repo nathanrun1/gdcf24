@@ -7,7 +7,6 @@ func _ready() -> void:
 
 func popup(value: String, color: Color):
 	print(color)
-	print("check")
 	text = value
 	modulate = color
 	visible = true
