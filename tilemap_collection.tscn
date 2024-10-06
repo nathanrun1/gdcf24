@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://d3qpcckvdfno"]
+[gd_scene load_steps=52 format=4 uid="uid://cuku1xrk5kalu"]
 
 [ext_resource type="Texture2D" uid="uid://dtoq7af1llk04" path="res://assets/sprites/wall_ph.png" id="1_1iu2o"]
 [ext_resource type="Texture2D" uid="uid://v3ybus28q42n" path="res://assets/sprites/map/Grass_patch_-1.png" id="2_d1puv"]
@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c7mhfttbgml0" path="res://scenes/player.tscn" id="16_7sjo5"]
 [ext_resource type="PackedScene" uid="uid://dvmf7a1kwdnhk" path="res://scenes/summon_panel.tscn" id="17_8jxni"]
 [ext_resource type="Script" path="res://button.gd" id="18_8fy6b"]
-[ext_resource type="PackedScene" path="res://scenes/score_interface.tscn" id="18_dfofp"]
+[ext_resource type="PackedScene" uid="uid://wbhng42dn6dg" path="res://scenes/score_interface.tscn" id="18_dfofp"]
 [ext_resource type="PackedScene" uid="uid://w3ptp1bjgiw3" path="res://scenes/summon_interface.tscn" id="19_pcmyg"]
 [ext_resource type="AudioStream" uid="uid://dvi2mso0eg7ey" path="res://assets/sfx/successful.mp3" id="21_hs0qr"]
 [ext_resource type="AudioStream" uid="uid://ia67icr7vp06" path="res://assets/sfx/failure.mp3" id="22_pcr1l"]

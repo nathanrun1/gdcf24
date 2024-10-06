@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GDCF24"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://tilemap_collection.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
