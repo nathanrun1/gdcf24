@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://6she8unb3v78"]
+[gd_scene load_steps=4 format=3 uid="uid://cmvylx5ew22ul"]
 
 [ext_resource type="Script" path="res://scripts/enemies/bullet.gd" id="1_8aquk"]
 [ext_resource type="Texture2D" uid="uid://c5va24snf3nwn" path="res://assets/sprites/snowman/Carrot_.png" id="2_kypch"]

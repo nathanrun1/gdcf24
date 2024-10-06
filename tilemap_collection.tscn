@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://cuku1xrk5kalu"]
+[gd_scene load_steps=52 format=4 uid="uid://d3qpcckvdfno"]
 
 [ext_resource type="Texture2D" uid="uid://dtoq7af1llk04" path="res://assets/sprites/wall_ph.png" id="1_1iu2o"]
 [ext_resource type="Texture2D" uid="uid://v3ybus28q42n" path="res://assets/sprites/map/Grass_patch_-1.png" id="2_d1puv"]
@@ -18,8 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://c7mhfttbgml0" path="res://scenes/player.tscn" id="16_7sjo5"]
 [ext_resource type="PackedScene" uid="uid://dvmf7a1kwdnhk" path="res://scenes/summon_panel.tscn" id="17_8jxni"]
 [ext_resource type="Script" path="res://button.gd" id="18_8fy6b"]
-[ext_resource type="PackedScene" uid="uid://wbhng42dn6dg" path="res://scenes/score_interface.tscn" id="18_dfofp"]
+[ext_resource type="PackedScene" path="res://scenes/score_interface.tscn" id="18_dfofp"]
 [ext_resource type="PackedScene" uid="uid://w3ptp1bjgiw3" path="res://scenes/summon_interface.tscn" id="19_pcmyg"]
+[ext_resource type="AudioStream" uid="uid://dvi2mso0eg7ey" path="res://assets/sfx/successful.mp3" id="21_hs0qr"]
+[ext_resource type="AudioStream" uid="uid://ia67icr7vp06" path="res://assets/sfx/failure.mp3" id="22_pcr1l"]
+[ext_resource type="AudioStream" uid="uid://byvnfqilqiav3" path="res://assets/sfx/drawing.mp3" id="23_u44mt"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_he7ti"]
 tile_data = PackedInt32Array(0, 3, 0, 65536, 4, 0, 131072, 2, 0, 196608, 3, 0, 262144, 4, 0, 327680, 4, 0, 393216, 2, 0, 1, 5, 0, 65537, 3, 0, 131073, 4, 0, 196609, 5, 0, 262145, 4, 0, 327681, 1, 0, 393217, 3, 0, 2, 4, 0, 65538, 4, 0, 131074, 2, 0, 196610, 3, 0, 262146, 3, 0, 327682, 3, 0, 393218, 1, 0, 3, 5, 0, 65539, 2, 0, 131075, 4, 0, 196611, 3, 0, 262147, 3, 0, 327683, 4, 0, 393219, 3, 0, 4, 2, 0, 65540, 5, 0, 131076, 4, 0, 196612, 3, 0, 262148, 5, 0, 327684, 4, 0, 393220, 3, 0, 5, 1, 0, 65541, 4, 0, 131077, 3, 0, 196613, 5, 0, 262149, 3, 0, 327685, 4, 0, 393221, 4, 0, 6, 4, 0, 65542, 3, 0, 131078, 3, 0, 196614, 3, 0, 262150, 3, 0, 327686, 4, 0, 393222, 5, 0)
@@ -231,3 +234,14 @@ score_label = NodePath("../Player/Camera2D/RichTextLabel")
 [node name="SummonInterface" parent="." node_paths=PackedStringArray("summon_panel_p", "player") instance=ExtResource("19_pcmyg")]
 summon_panel_p = NodePath("../Player/Camera2D/SummonPanel")
 player = NodePath("../Player")
+
+[node name="correct_pattern_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_hs0qr")
+volume_db = -1.75
+
+[node name="incorrect_pattern_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_pcr1l")
+volume_db = -1.75
+
+[node name="drawing_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_u44mt")
