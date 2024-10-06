@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://d4nikr5a47odb"]
 
-[ext_resource type="Texture2D" uid="uid://c6l8yqe4f0mq6" path="res://assets/sprites/summon_node.png" id="1_h2ski"]
+[ext_resource type="Texture2D" uid="uid://cjd7njm6o7qbt" path="res://assets/sprites/tome/Summon_Node_Selected-1.png" id="1_5hree"]
 [ext_resource type="Script" path="res://scripts/summoning/summon_node.gd" id="2_6a8ho"]
 
 [node name="SummoningNode" type="TextureRect"]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_h2ski")
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("1_5hree")
 script = ExtResource("2_6a8ho")

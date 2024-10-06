@@ -43,11 +43,11 @@ position = Vector2(-8, -11)
 zoom = Vector2(0.5, 0.5)
 
 [node name="SummonPanel" parent="Player/Camera2D" instance=ExtResource("4_a1qly")]
-offset_left = -378.0
-offset_top = 31.0
-offset_right = -374.0
-offset_bottom = 31.0
-scale = Vector2(0.39, 0.39)
+offset_left = -73.0
+offset_top = 48.8051
+offset_right = -69.0
+offset_bottom = 48.8051
+scale = Vector2(0.34, 0.34)
 
 [node name="Area2D" type="Area2D" parent="."]
 modulate = Color(0.530059, 0.450496, 0.84855, 1)

@@ -2,12 +2,12 @@ extends Panel
 class_name SummoningPanel
 
 const SUMMON_NODE_CENTER_OFFSET: Vector2 = Vector2(22, 22)
-const SUMMON_NODE_SELECTOR_OFFSET: Vector2 = Vector2(-5, -5)
+const SUMMON_NODE_SELECTOR_OFFSET: Vector2 = Vector2(-2, -2)
 const DEBUG = true
 
 enum MODE {MOUSE,DIRECTION,KEYPAD}
 
-var drawing_line: Line2D
+@export var drawing_line: Line2D
 var pattern: Array[int]
 var summon_nodes: Array[SummonNode]
 var node_grid: Array[Array] = [[], [], []]
@@ -133,13 +133,16 @@ func _finish_drawing() -> void:
 		reset()
 
 func _reset_drawing_line() -> void:
-	if drawing_line:
-		drawing_line.queue_free()
-	drawing_line = Line2D.new()
-	drawing_line.antialiased = true
+	#if drawing_line:
+		#drawing_line.queue_free()
+	#drawing_line = Line2D.new()
+	#drawing_line.antialiased = true
+	#if mode == MODE.MOUSE:
+		#drawing_line.add_point(Vector2(0,0))
+	#add_child(drawing_line)
+	drawing_line.clear_points()
 	if mode == MODE.MOUSE:
 		drawing_line.add_point(Vector2(0,0))
-	add_child(drawing_line)
 
 func _attach_line_to_summon_node(summon_node: SummonNode) -> void:
 	var cur_link

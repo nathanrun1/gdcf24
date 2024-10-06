@@ -1,11 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvmf7a1kwdnhk"]
+[gd_scene load_steps=9 format=3 uid="uid://dvmf7a1kwdnhk"]
 
 [ext_resource type="Script" path="res://scripts/summoning/summon_panel.gd" id="1_0yxa3"]
 [ext_resource type="PackedScene" uid="uid://d4nikr5a47odb" path="res://scenes/summon_node.tscn" id="1_rqwbo"]
 [ext_resource type="PackedScene" uid="uid://bdy50csrpwm0r" path="res://scenes/summon_node_selector.tscn" id="3_mptpn"]
+[ext_resource type="Texture2D" uid="uid://bsb5gmp8qqjy0" path="res://assets/sprites/tome/Tome.png" id="4_hcva7"]
+[ext_resource type="Texture2D" uid="uid://diphrdgkg0xby" path="res://assets/sprites/tome/Summon_Node_Selected-2.png" id="4_x14kp"]
+[ext_resource type="Texture2D" uid="uid://b8ytpkxbn82vp" path="res://assets/sprites/tome/Summon_Line.png" id="6_vo8vn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3yl1x"]
+
+[sub_resource type="Gradient" id="Gradient_pg7fq"]
+colors = PackedColorArray(0.783997, 0.107972, 1, 1, 0.650633, 0.103078, 0, 1)
 
 [node name="SummonPanel" type="Control"]
-z_index = 1
+modulate = Color(1, 1, 1, 0.631373)
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,14 +28,17 @@ grow_vertical = 2
 scale = Vector2(0.45, 0.45)
 mouse_filter = 1
 
-[node name="SummonPanel" type="Panel" parent="." node_paths=PackedStringArray("summon_node_selector")]
+[node name="SummonPanel" type="Panel" parent="." node_paths=PackedStringArray("drawing_line", "summon_node_selector")]
+texture_filter = 1
 layout_mode = 0
 offset_left = 762.0
 offset_top = 23.0
-offset_right = 1123.0
+offset_right = 1029.0
 offset_bottom = 382.0
 mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3yl1x")
 script = ExtResource("1_0yxa3")
+drawing_line = NodePath("DrawingLine")
 summon_node_selector = NodePath("SummonNodeSelector")
 
 [node name="SummoningNode" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
@@ -36,28 +48,28 @@ offset_left = 31.0
 offset_top = 28.0
 offset_right = 71.0
 offset_bottom = 44.0
-scale = Vector2(1.09913, 2.76116)
+scale = Vector2(0.939, 2.359)
 index = 0
 
 [node name="SummoningNode3" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
 z_index = 2
 layout_mode = 2
-offset_left = 159.0
+offset_left = 124.667
 offset_top = 28.0
-offset_right = 199.0
+offset_right = 164.667
 offset_bottom = 44.0
-scale = Vector2(1.09913, 2.76116)
+scale = Vector2(0.939, 2.359)
 index = 1
 grid_pos = Vector2(0, -1)
 
 [node name="SummoningNode2" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
 z_index = 2
 layout_mode = 2
-offset_left = 287.0
+offset_left = 222.444
 offset_top = 28.0
-offset_right = 327.0
+offset_right = 262.444
 offset_bottom = 44.0
-scale = Vector2(1.09913, 2.76116)
+scale = Vector2(0.939, 2.359)
 index = 2
 grid_pos = Vector2(1, -1)
 
@@ -68,29 +80,29 @@ offset_left = 31.0
 offset_top = 153.0
 offset_right = 71.0
 offset_bottom = 169.0
-scale = Vector2(1.09913, 2.76116)
+scale = Vector2(0.939, 2.359)
 index = 3
 grid_pos = Vector2(-1, 0)
 
 [node name="SummoningNode6" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
 z_index = 2
 layout_mode = 2
-offset_left = 159.0
+offset_left = 124.667
 offset_top = 153.0
-offset_right = 199.0
+offset_right = 164.667
 offset_bottom = 169.0
-scale = Vector2(1.09913, 2.76116)
+scale = Vector2(0.939, 2.359)
 index = 4
 grid_pos = Vector2(0, 0)
 
 [node name="SummoningNode5" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
 z_index = 2
 layout_mode = 2
-offset_left = 287.0
+offset_left = 222.444
 offset_top = 153.0
-offset_right = 327.0
+offset_right = 262.444
 offset_bottom = 169.0
-scale = Vector2(1.09913, 2.76116)
+scale = Vector2(0.939, 2.359)
 index = 5
 grid_pos = Vector2(1, 0)
 
@@ -101,40 +113,62 @@ offset_left = 31.0
 offset_top = 280.0
 offset_right = 71.0
 offset_bottom = 296.0
-scale = Vector2(1.09913, 2.76116)
+scale = Vector2(0.939, 2.359)
 index = 6
 grid_pos = Vector2(-1, 1)
 
 [node name="SummoningNode9" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
 z_index = 2
 layout_mode = 2
-offset_left = 159.0
-offset_top = 280.0
-offset_right = 199.0
-offset_bottom = 296.0
-scale = Vector2(1.09913, 2.76116)
+offset_left = 124.667
+offset_top = 277.889
+offset_right = 164.667
+offset_bottom = 293.889
+scale = Vector2(0.939, 2.359)
 index = 7
 grid_pos = Vector2(0, 1)
 
 [node name="SummoningNode8" parent="SummonPanel" instance=ExtResource("1_rqwbo")]
 z_index = 2
 layout_mode = 2
-offset_left = 287.0
-offset_top = 280.0
-offset_right = 327.0
-offset_bottom = 296.0
-scale = Vector2(1.09913, 2.76116)
+offset_left = 222.444
+offset_top = 277.889
+offset_right = 262.444
+offset_bottom = 293.889
+scale = Vector2(0.939, 2.359)
 index = 8
 grid_pos = Vector2(1, 1)
 
 [node name="SummonNodeSelector" parent="SummonPanel" instance=ExtResource("3_mptpn")]
 z_index = 2
 layout_mode = 0
-offset_left = 154.0
-offset_top = 23.0
-offset_right = 194.0
-offset_bottom = 63.0
-scale = Vector2(1.31, 1.31)
+offset_left = 122.444
+offset_top = 25.8889
+offset_right = 162.444
+offset_bottom = 65.8889
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("4_x14kp")
+
+[node name="Background" type="NinePatchRect" parent="SummonPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -29.0
+offset_top = -30.0
+offset_right = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_hcva7")
+region_rect = Rect2(2.91034, 0, 27.3532, 32)
+
+[node name="DrawingLine" type="Line2D" parent="SummonPanel"]
+position = Vector2(-73.1111, -11.8889)
+points = PackedVector2Array(0, 0)
+width = 34.33
+gradient = SubResource("Gradient_pg7fq")
+texture = ExtResource("6_vo8vn")
+texture_mode = 1
 
 [connection signal="mouse_entered" from="SummonPanel/SummoningNode" to="SummonPanel" method="_on_summoning_node_mouse_entered"]
 [connection signal="clicked" from="SummonPanel/SummoningNode3" to="SummonPanel" method="_on_summoning_node_clicked"]
