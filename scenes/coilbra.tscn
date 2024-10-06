@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjemw6wb0u664"]
+[gd_scene load_steps=10 format=3 uid="uid://chpiscon6v44k"]
 
 [ext_resource type="Script" path="res://scripts/enemies/coilbra.gd" id="1_5rlyq"]
 [ext_resource type="Texture2D" uid="uid://c7w80wdg7j6jx" path="res://assets/sprites/coilbra/Idle/Coilbra_Idle-1.png" id="2_mb4ra"]

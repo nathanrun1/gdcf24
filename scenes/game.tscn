@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://c7mhfttbgml0" path="res://scenes/player.tscn" id="1_47xqi"]
 [ext_resource type="Script" path="res://scripts/general/game.gd" id="1_tx4aq"]
 [ext_resource type="Texture2D" uid="uid://dtoq7af1llk04" path="res://assets/sprites/wall_ph.png" id="2_oeo0e"]
-[ext_resource type="PackedScene" uid="uid://bueyda12djc1s" path="res://scenes/snowman.tscn" id="2_p81uo"]
+[ext_resource type="PackedScene" uid="uid://daqln4o3qbovu" path="res://scenes/snowman.tscn" id="2_p81uo"]
 [ext_resource type="PackedScene" uid="uid://dvmf7a1kwdnhk" path="res://scenes/summon_panel.tscn" id="5_4hrcc"]
-[ext_resource type="PackedScene" uid="uid://dk0scib6jso1f" path="res://scenes/summon_interface.tscn" id="6_j2rda"]
+[ext_resource type="PackedScene" path="res://scenes/summon_interface.tscn" id="6_j2rda"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_spjg0"]
 texture = ExtResource("2_oeo0e")
