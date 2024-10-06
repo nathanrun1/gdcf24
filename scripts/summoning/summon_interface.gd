@@ -102,8 +102,16 @@ func _on_summon(pattern: Array[Array]):
 			_summon_enemy(cur_sequence[0], cur_sequence[1])
 		cur_sequence = []
 	if ENEMY_PATTERNS.get(pattern) and cur_sequence.is_empty():
-		cur_sequence.append(ENEMY_PATTERNS[pattern])
-		cur_type = SUMMON_TYPE.ENEMY
+		var enemy_type: String = ENEMY_PATTERNS[pattern]
+		var amnt: int = randi_range(1, 4)
+		_summon_enemy(enemy_type, "Up")
+		if amnt > 1:
+			_summon_enemy(enemy_type, "Right")
+		if amnt > 2:
+			_summon_enemy(enemy_type, "Left")
+		if amnt > 3:
+			_summon_enemy(enemy_type, "Down")
+		
 		
 
 func _summon_enemy(enemy_type: String, direction: String):

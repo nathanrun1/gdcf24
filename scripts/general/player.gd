@@ -37,10 +37,12 @@ func _on_spell(spellname, direction):
 		new_freeze.rotation_degrees = direction
 		new_freeze.execute()
 	if spellname == "Fireball":
-		var new_fireball = fireball_spell_scene.instantiate()
-		add_child(new_fireball)
-		new_fireball.rotation_degrees = direction
-		new_fireball.execute()
+		for i in range(3):
+			var new_fireball = fireball_spell_scene.instantiate()
+			$"..".add_child(new_fireball)
+			$Muzzle.rotation_degrees = direction - 15 + (i * 15)
+			new_fireball.transform = $Muzzle.global_transform
+			new_fireball.execute()
 		
 
 func _input(input: InputEvent):
@@ -60,6 +62,9 @@ func _on_player_damage(damage: int):
 		damage_queued = true
 
 func _physics_process(delta: float) -> void:
+	if health <= 0:
+		$DeathPanel.visible = true
+		return
 	_play_animation()
 	direction = Input.get_vector("player_left", "player_right", "player_up", "player_down").normalized()
 	# -- Movement & Collisions --
@@ -112,7 +117,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _play_animation() -> void:
-	if (velocity.length() > 0.0):
-		sprite_anm.play("move")
-	else:
-		sprite_anm.play("idle")
+	if health > 0:
+		if (velocity.length() > 0.0):
+			sprite_anm.play("move")
+		else:
+			sprite_anm.play("idle")

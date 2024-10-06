@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bpvwlmx32pkji" path="res://assets/sprites/snowman/shoot/Snowman_Shoot-1.png" id="1_co31x"]
 [ext_resource type="Script" path="res://scripts/enemies/snowman.gd" id="1_rbgnv"]
-[ext_resource type="PackedScene" uid="uid://cmvylx5ew22ul" path="res://scenes/bullet.tscn" id="2_00wov"]
+[ext_resource type="PackedScene" uid="uid://6she8unb3v78" path="res://scenes/bullet.tscn" id="2_00wov"]
 [ext_resource type="Texture2D" uid="uid://c8lwpm2ncable" path="res://assets/sprites/snowman/shoot/Snowman_Shoot-2.png" id="2_p0ey1"]
 [ext_resource type="PackedScene" uid="uid://dxwyhvt14bxa6" path="res://scenes/number_display.tscn" id="3_uaeq1"]
 [ext_resource type="Texture2D" uid="uid://dyxcuwlrudsq2" path="res://assets/sprites/snowman/shoot/Snowman_Shoot-3.png" id="3_uxy7r"]

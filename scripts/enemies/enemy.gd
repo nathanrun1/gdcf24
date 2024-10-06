@@ -35,13 +35,15 @@ func take_damage(damage: int):
 		_death()
 
 func _death():
-	self.modulate = Color.DARK_GRAY
-	score_interface.add_score(value)
-	var num_popup = number_popup_scene.instantiate()
-	add_child(num_popup)
-	num_popup.position = Vector2(0, 0)
-	num_popup.popup("+" + str(value), Color.RED)
-	await get_tree().create_timer(0.5).timeout
-	queue_free()
+	if not is_dead:
+		is_dead = true
+		self.modulate = Color.DARK_GRAY
+		score_interface.add_score(self.value)
+		var num_popup = number_popup_scene.instantiate()
+		add_child(num_popup)
+		num_popup.position = Vector2(0, 0)
+		num_popup.popup("+" + str(value), Color.RED)
+		await get_tree().create_timer(0.5).timeout
+		queue_free()
 	
 	
