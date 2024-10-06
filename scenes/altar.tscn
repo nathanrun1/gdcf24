@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6moqch6wl8es"]
 
-[ext_resource type="Script" path="res://scripts/altar.gd" id="1_dmq41"]
+[ext_resource type="Script" path="res://scripts/summoning/altar.gd" id="1_dmq41"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dok1a"]
 

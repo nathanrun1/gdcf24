@@ -4,10 +4,11 @@ class_name Snowman
 @onready var sprite_anm = $AnimatedSprite2D
 @onready var player := $"../Player"
 
-const DAMAGE : int = 10
-const TOP_SPEED : float = 800
-const TOP_ACC : float = 5
-const PANIC_RADIUS : int = 100
+var shot_damage : int = 10
+var top_speed : float = 800
+var top_acc : float = 5
+var panic_radius : int = 100
+var shoot_delay_seconds : int = 0.5
 
 var acc : Vector2 = Vector2.ZERO
 
@@ -23,10 +24,10 @@ func _physics_process(delta: float) -> void:
 	rotation += PI if direction.y > 0 else 00
 	
 	print(direction.length())
-	if direction.length() <= PANIC_RADIUS:
-		acc = ndirection * TOP_ACC
+	if direction.length() <= panic_radius:
+		acc = ndirection * top_acc
 		velocity += acc
-		velocity = velocity.normalized() * min(velocity.length(), TOP_SPEED)
+		velocity = velocity.normalized() * min(velocity.length(), top_speed)
 	else: 
 		velocity = Vector2.ZERO
 		

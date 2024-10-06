@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dk0scib6jso1f"]
 
-[ext_resource type="Script" path="res://summon_interface.gd" id="1_qcwo3"]
+[ext_resource type="Script" path="res://scripts/summoning/summon_interface.gd" id="1_qcwo3"]
 
 [node name="SummonInterface" type="Node2D"]
 script = ExtResource("1_qcwo3")

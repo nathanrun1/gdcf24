@@ -14,10 +14,10 @@ const DIRECTION_PATTERNS = {
 	[[2, 3], [3, 8]]: "Left",
 	[[1, 6], [1, 8]]: "Up",
 	[[0, 5], [5, 6]]: "Right",
-	[[1, 8], [3, 8]]: "DownLeft",
-	[[1, 6], [5, 6]]: "UpRight",
+	[[1, 8], [3, 8]]: "DownRight",
+	[[1, 6], [5, 6]]: "DownLeft",
 	[[0, 5], [0, 7]]: "UpLeft",
-	[[2, 3], [2, 7]]: "DownRight"
+	[[2, 3], [2, 7]]: "UpRight"
 }
 
 const DIRECTION_ROTATIONS = {

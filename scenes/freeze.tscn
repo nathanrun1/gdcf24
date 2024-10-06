@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cr5k1cqdonjj0"]
 
-[ext_resource type="Script" path="res://freeze.gd" id="1_rydyu"]
+[ext_resource type="Script" path="res://scripts/spells/freeze.gd" id="1_rydyu"]
 
 [sub_resource type="Gradient" id="Gradient_x680d"]
 offsets = PackedFloat32Array(0.00348432, 0.167247)

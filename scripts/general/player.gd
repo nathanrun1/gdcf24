@@ -6,6 +6,7 @@ class_name Player
 
 
 signal zero_health
+signal player_damage(damage: int)
 
 const WALK_SPEED: int = 200
 var speed : int = WALK_SPEED
@@ -13,8 +14,10 @@ var direction : Vector2 = Vector2.ZERO
 
 
 var health : int = 100
-const I_FRAME : int = 30
-var i_frame_count = 0
+var queued_damage : int = 0
+var damage_queued: bool = false
+const I_FRAME_SECONDS : float = 1
+var i_frame_count: float = 0
 
 # Spells
 var freeze_spell_scene = preload("res://scenes/freeze.tscn")
@@ -24,9 +27,9 @@ var freeze_spell_scene = preload("res://scenes/freeze.tscn")
 func _ready():
 	summon_interface.spell.connect(_on_spell)
 	health_bar.value = health
+	player_damage.connect(_on_player_damage)
 
 func _on_spell(spellname, direction):
-	print("hello")
 	if spellname == "Freeze":
 		var new_freeze = freeze_spell_scene.instantiate()
 		add_child(new_freeze)
@@ -46,65 +49,64 @@ func _input(input: InputEvent):
 			speed = WALK_SPEED
 			sprite_anm.speed_scale = 1
 	
-
+func _on_player_damage(damage: int):
+	if (i_frame_count <= 0 and not damage_queued):
+		queued_damage += damage
+		damage_queued = true
 
 func _physics_process(delta: float) -> void:
 	_play_animation()
 	direction = Input.get_vector("player_left", "player_right", "player_up", "player_down").normalized()
-
-	
+	# -- Movement & Collisions --
+	velocity = speed * direction
+	move_and_collide(velocity * delta)
+	# -- Enemy Interaction --
 	if i_frame_count > 0:
-		i_frame_count -= 1
-		if i_frame_count == I_FRAME - 5:
+		if not damage_queued:
+			queued_damage = 0
+		i_frame_count -= delta
+		if i_frame_count <= I_FRAME_SECONDS - 0.1:
 			$AnimatedSprite2D.modulate = Color.WHITE
 		if i_frame_count == 0:
 			$HurtBox/CollisionShape2D.disabled = false
-	
-
-	velocity = speed * direction
-	
-	
-	
-	var overlapping_mobs = $HurtBox.get_overlapping_bodies()
-	
-	if overlapping_mobs.size() > 0:
-		i_frame_count = I_FRAME
-		$HurtBox/CollisionShape2D.disabled = true
+	if queued_damage > 0:
+		i_frame_count = I_FRAME_SECONDS
+		health -= queued_damage
 		$AnimatedSprite2D.modulate = Color.CRIMSON
-	for enemy in overlapping_mobs:
-		health -= enemy.DAMAGE
+		queued_damage = 0
+		damage_queued = false
 		health_bar.value = health
 		if (health <= 0):
 			zero_health.emit()
-
-	
-	
-	
-
-
-	velocity = speed * direction
+	# OLD SYSTEM --
+	#var overlapping_mobs = $HurtBox.get_overlapping_bodies()
+	#if overlapping_mobs.size() > 0:
+		#i_frame_count = I_FRAME
+		#$HurtBox/CollisionShape2D.disabled = true
+		#$AnimatedSprite2D.modulate = Color.CRIMSON
+	#for enemy in overlapping_mobs:
+		#health -= enemy.DAMAGE
+		#health_bar.value = health
+		#if (health <= 0):
+			#zero_health.emit()
+	# --
+	# -- Player direction --
 	if not summon_interface.is_panel_open():
 		# Summoning panel is not open
 		if (direction.x > 0): # right facing
 			sprite_anm.transform("right")
-		elif (direction.x < 0): #left facing
+		elif (direction.x < 0): # left facing
 			sprite_anm.transform("left")
 	else:
 		# Summoning panel is open
-		if (direction.x > 0): # right facing
+		if (direction.x > 0): # left facing
 			sprite_anm.transform("left")
-		elif (direction.x < 0): #left facing
+		elif (direction.x < 0): # right facing
 			sprite_anm.transform("right")
-
-	move_and_collide(velocity * delta)
 
 
 
 func _play_animation() -> void:
-	if (direction.x > 0): # right facing
-		sprite_anm.transform("right")
-	elif (direction.x < 0): #left facing
-		sprite_anm.transform("left")
 	if (velocity.length() > 0.0):
 		sprite_anm.play("move")
 	else:

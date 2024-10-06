@@ -1,4 +1,5 @@
-class_name SummoningPanel extends Panel
+extends Panel
+class_name SummoningPanel
 
 const SUMMON_NODE_CENTER_OFFSET: Vector2 = Vector2(22, 22)
 const SUMMON_NODE_SELECTOR_OFFSET: Vector2 = Vector2(-5, -5)
@@ -25,7 +26,6 @@ var overlap_links = {
 @onready var can_draw: bool = true
 
 @export_category("DEBUG")
-@export var reset_after_complete: bool
 @export var summon_node_selector: TextureRect
 @export var mode: MODE = MODE.KEYPAD
 var selected_node: SummonNode
@@ -121,6 +121,7 @@ func _on_summon_node_hovered(summon_node: SummonNode) -> void:
 
 func _finish_drawing() -> void:
 	if $"..".visible and self.visible:
+		print("check")
 		if mode == MODE.MOUSE:
 			drawing_line.remove_point(drawing_line.get_point_count() - 1)
 		is_drawing = false
@@ -129,9 +130,7 @@ func _finish_drawing() -> void:
 		summon.emit(links)
 		if DEBUG:
 			print(links)
-		# DEBUG
-		if reset_after_complete:
-			reset()
+		reset()
 
 func _reset_drawing_line() -> void:
 	if drawing_line:

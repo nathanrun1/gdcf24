@@ -1,10 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccq0i4e77p8mw"]
 
 [ext_resource type="Texture2D" uid="uid://glimr61usjbb" path="res://assets/sprites/slime/slime_1.png" id="1_b04iu"]
-[ext_resource type="Script" path="res://scripts/slime.gd" id="1_hsbgr"]
+[ext_resource type="Script" path="res://scripts/enemies/slime.gd" id="1_hsbgr"]
 [ext_resource type="Texture2D" uid="uid://bxhg228ugsd51" path="res://assets/sprites/slime/slime_2.png" id="2_d3vsp"]
 [ext_resource type="Texture2D" uid="uid://buglo7srg0hnj" path="res://assets/sprites/slime/slime_3.png" id="3_q7or1"]
-[ext_resource type="Script" path="res://scripts/animated_sprite_2d.gd" id="5_w02lo"]
+[ext_resource type="Script" path="res://scripts/general/player_sprite.gd" id="5_w02lo"]
+
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x81vc"]
 animations = [{
