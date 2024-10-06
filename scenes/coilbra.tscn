@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://chpiscon6v44k"]
+[gd_scene load_steps=6 format=3 uid="uid://chpiscon6v44k"]
 
 [ext_resource type="Script" path="res://scripts/coilbra.gd" id="1_optmi"]
 [ext_resource type="Texture2D" uid="uid://cbdqyk8glm1m0" path="res://assets/sprites/coilbra/Charge_Enemy.png" id="2_hupvm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt2ly"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oov0"]
 size = Vector2(32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ledf5"]
@@ -17,12 +17,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikkjc"]
+size = Vector2(32, 32)
+
 [node name="coilbra" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_optmi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_lt2ly")
+shape = SubResource("RectangleShape2D_8oov0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ledf5")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_ikkjc")

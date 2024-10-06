@@ -57,6 +57,8 @@ func _physics_process(delta: float) -> void:
 	direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
 	velocity = speed * direction
 	
+	
+	
 	var overlapping_mobs = $HurtBox.get_overlapping_bodies()
 	
 	if overlapping_mobs.size() > 0:
