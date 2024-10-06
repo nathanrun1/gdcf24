@@ -63,7 +63,7 @@ func _on_player_damage(damage: int):
 
 func _physics_process(delta: float) -> void:
 	if health <= 0:
-		$DeathPanel.visible = true
+		$Camera2D/DeathPanel.visible = true
 		return
 	_play_animation()
 	direction = Input.get_vector("player_left", "player_right", "player_up", "player_down").normalized()
@@ -76,11 +76,9 @@ func _physics_process(delta: float) -> void:
 		if not damage_queued:
 			queued_damage = 0
 		i_frame_count -= delta
-		if i_frame_count == 0:
-			$HurtBox/CollisionShape2D.disabled = false
 	else:
 		$AnimatedSprite2D.modulate = Color.WHITE
-	if queued_damage > 0:
+	if damage_queued:
 		i_frame_count = I_FRAME_SECONDS
 		health -= queued_damage
 		queued_damage = 0
@@ -122,3 +120,5 @@ func _play_animation() -> void:
 			sprite_anm.play("move")
 		else:
 			sprite_anm.play("idle")
+	else:
+		sprite_anm.stop()

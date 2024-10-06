@@ -183,7 +183,7 @@ offset_left = -320.0
 offset_top = -180.0
 offset_right = -147.0
 offset_bottom = -140.0
-text = "SCORE: 100"
+text = "SCORE: 0"
 
 [node name="DeathPanel" type="Panel" parent="Player/Camera2D"]
 visible = false
@@ -230,5 +230,4 @@ score_label = NodePath("../Player/Camera2D/RichTextLabel")
 
 [node name="SummonInterface" parent="." node_paths=PackedStringArray("summon_panel_p", "player") instance=ExtResource("19_pcmyg")]
 summon_panel_p = NodePath("../Player/Camera2D/SummonPanel")
-DEBUG = true
 player = NodePath("../Player")
