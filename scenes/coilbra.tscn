@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://chpiscon6v44k"]
 
 [ext_resource type="Script" path="res://scripts/enemies/coilbra.gd" id="1_5rlyq"]
-[ext_resource type="PackedScene" uid="uid://dxwyhvt14bxa6" path="res://scenes/number_display.tscn" id="2_2xn8d"]
+[ext_resource type="PackedScene" path="res://scenes/number_display.tscn" id="2_2xn8d"]
 [ext_resource type="Texture2D" uid="uid://c7w80wdg7j6jx" path="res://assets/sprites/coilbra/Idle/Coilbra_Idle-1.png" id="2_mb4ra"]
 [ext_resource type="Texture2D" uid="uid://dvy3kr3dk7kcc" path="res://assets/sprites/coilbra/Idle/Coilbra_Idle-2.png" id="3_m14ad"]
 [ext_resource type="Texture2D" uid="uid://dgd6bktm88w4w" path="res://assets/sprites/coilbra/Roll/Coilbra_Roll-1.png" id="4_edva7"]

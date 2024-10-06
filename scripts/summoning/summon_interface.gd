@@ -93,7 +93,8 @@ func _on_summon(pattern: Array[Array]):
 	if SPELL_PATTERNS.get(pattern) and cur_sequence.is_empty():
 		cur_sequence.append(SPELL_PATTERNS[pattern])
 		cur_type = SUMMON_TYPE.SPELL
-	if DIRECTION_PATTERNS.get(pattern) and not cur_sequence.is_empty():
+		$"../correct_pattern_sound".play()
+	elif DIRECTION_PATTERNS.get(pattern) and not cur_sequence.is_empty():
 		# Confirm summon after direction given
 		cur_sequence.append(DIRECTION_PATTERNS[pattern])
 		if cur_type == SUMMON_TYPE.SPELL:
@@ -101,7 +102,8 @@ func _on_summon(pattern: Array[Array]):
 		if cur_type == SUMMON_TYPE.ENEMY:
 			_summon_enemy(cur_sequence[0], cur_sequence[1])
 		cur_sequence = []
-	if ENEMY_PATTERNS.get(pattern) and cur_sequence.is_empty():
+		$"../correct_pattern_sound".play()
+	elif ENEMY_PATTERNS.get(pattern) and cur_sequence.is_empty():
 		var enemy_type: String = ENEMY_PATTERNS[pattern]
 		var amnt: int = randi_range(1, 4)
 		_summon_enemy(enemy_type, "Up")
@@ -111,6 +113,9 @@ func _on_summon(pattern: Array[Array]):
 			_summon_enemy(enemy_type, "Left")
 		if amnt > 3:
 			_summon_enemy(enemy_type, "Down")
+		$"../correct_pattern_sound".play()
+	else:
+		$"../incorrect_pattern_sound".play()
 		
 		
 
