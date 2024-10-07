@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc8enlt8lc3m8"]
+
+[ext_resource type="Texture2D" uid="uid://6gsr31b8evi1" path="res://assets/sprites/patterns/Patterns-1.png" id="1_hu3t8"]
+[ext_resource type="Texture2D" uid="uid://dbm8j08wsymt8" path="res://assets/sprites/patterns/Patterns-2.png" id="2_fr7r1"]
+[ext_resource type="Texture2D" uid="uid://2i0uv3hp5tdf" path="res://assets/sprites/patterns/Patterns-3.png" id="3_2qhqe"]
+[ext_resource type="Texture2D" uid="uid://eesoafidmhd0" path="res://assets/sprites/patterns/Patterns-4.png" id="4_18s0b"]
+[ext_resource type="Texture2D" uid="uid://bei32pneel2ly" path="res://assets/sprites/patterns/Patterns-5.png" id="5_pxtq2"]
+
+[node name="summon patterns" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="coilbra pattern" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 320.0
+offset_right = 200.0
+offset_bottom = 360.0
+scale = Vector2(4, 4)
+texture = ExtResource("1_hu3t8")
+
+[node name="snowman pattern" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 320.0
+offset_right = 360.0
+offset_bottom = 360.0
+scale = Vector2(4, 4)
+texture = ExtResource("2_fr7r1")
+
+[node name="slime pattern" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 320.0
+offset_right = 40.0
+offset_bottom = 360.0
+scale = Vector2(4, 4)
+texture = ExtResource("3_2qhqe")
+
+[node name="fireball pattern" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 40.0
+offset_bottom = 120.0
+scale = Vector2(4, 4)
+texture = ExtResource("4_18s0b")
+
+[node name="freeze pattern" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 120.0
+scale = Vector2(4, 4)
+texture = ExtResource("5_pxtq2")
+
+[node name="spell patterns label" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+text = "spells"
+
+[node name="mob pattern label" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 240.0
+offset_right = 62.0
+offset_bottom = 280.0
+scale = Vector2(3, 3)
+text = "mobs"

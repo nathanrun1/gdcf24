@@ -3,6 +3,7 @@ class_name SummonInterface extends Node2D
 @export var summon_panel_p: Control
 @export var DEBUG: bool = false
 var summon_panel: SummoningPanel
+var pattern_panel: PatternPanel
 
 enum SUMMON_TYPE {SPELL,ENEMY}
 
@@ -77,6 +78,9 @@ func _ready() -> void:
 	summon_panel = summon_panel_p.get_child(0)
 	summon_panel.summon.connect(_on_summon)
 	summon_panel.visible = false
+	
+	pattern_panel = summon_panel_p.get_child(1)
+	pattern_panel.visible = false
 
 func _input(input: InputEvent) -> void:
 	if DEBUG:
@@ -93,6 +97,7 @@ func _on_summon(pattern: Array[Array]):
 	if SPELL_PATTERNS.get(pattern) and cur_sequence.is_empty():
 		cur_sequence.append(SPELL_PATTERNS[pattern])
 		cur_type = SUMMON_TYPE.SPELL
+		pattern_panel.toggleCastPatternPanel("directions")
 		$"../correct_pattern_sound".play()
 	elif DIRECTION_PATTERNS.get(pattern) and not cur_sequence.is_empty():
 		# Confirm summon after direction given
@@ -102,6 +107,7 @@ func _on_summon(pattern: Array[Array]):
 		if cur_type == SUMMON_TYPE.ENEMY:
 			_summon_enemy(cur_sequence[0], cur_sequence[1])
 		cur_sequence = []
+		pattern_panel.toggleCastPatternPanel("summon")
 		$"../correct_pattern_sound".play()
 	elif ENEMY_PATTERNS.get(pattern) and cur_sequence.is_empty():
 		var enemy_type: String = ENEMY_PATTERNS[pattern]
@@ -160,6 +166,7 @@ func is_panel_open() -> bool:
 	
 func toggle_panel():
 	summon_panel.visible = not summon_panel.visible
+	pattern_panel.visible = not pattern_panel.visible
 
 func reset_panel():
 	summon_panel.reset()

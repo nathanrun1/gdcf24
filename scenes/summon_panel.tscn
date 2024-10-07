@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvmf7a1kwdnhk"]
+[gd_scene load_steps=13 format=3 uid="uid://dvmf7a1kwdnhk"]
 
 [ext_resource type="Script" path="res://scripts/summoning/summon_panel.gd" id="1_0yxa3"]
 [ext_resource type="PackedScene" uid="uid://d4nikr5a47odb" path="res://scenes/summon_node.tscn" id="1_rqwbo"]
@@ -6,11 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://yp8j2stma5uy" path="res://assets/sprites/tome/Tome.png" id="4_hcva7"]
 [ext_resource type="Texture2D" uid="uid://diphrdgkg0xby" path="res://assets/sprites/tome/Summon_Node_Selected-2.png" id="4_x14kp"]
 [ext_resource type="Texture2D" uid="uid://b8ytpkxbn82vp" path="res://assets/sprites/tome/Summon_Line.png" id="6_vo8vn"]
+[ext_resource type="Script" path="res://scripts/pattern_panel.gd" id="7_2snj3"]
+[ext_resource type="PackedScene" uid="uid://cc8enlt8lc3m8" path="res://scenes/summon_patterns.tscn" id="7_ndg5w"]
+[ext_resource type="PackedScene" uid="uid://cn5hkcuoavp1m" path="res://scenes/direction_patterns.tscn" id="8_omvg5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3yl1x"]
 
 [sub_resource type="Gradient" id="Gradient_pg7fq"]
 colors = PackedColorArray(0.783997, 0.107972, 1, 1, 0.650633, 0.103078, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_415m0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="SummonPanel" type="Control"]
 modulate = Color(1, 1, 1, 0.631373)
@@ -169,6 +175,28 @@ width = 34.33
 gradient = SubResource("Gradient_pg7fq")
 texture = ExtResource("6_vo8vn")
 texture_mode = 1
+
+[node name="PatternPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 251.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_415m0")
+script = ExtResource("7_2snj3")
+
+[node name="summon patterns" parent="PatternPanel" instance=ExtResource("7_ndg5w")]
+layout_mode = 1
+offset_left = -704.0
+offset_top = -527.0
+offset_right = -375.0
+offset_bottom = -386.0
+
+[node name="direction patterns" parent="PatternPanel" instance=ExtResource("8_omvg5")]
+visible = false
+layout_mode = 1
+offset_left = -704.0
+offset_top = -527.0
+offset_right = -225.0
+offset_bottom = -486.0
 
 [connection signal="mouse_entered" from="SummonPanel/SummoningNode" to="SummonPanel" method="_on_summoning_node_mouse_entered"]
 [connection signal="clicked" from="SummonPanel/SummoningNode3" to="SummonPanel" method="_on_summoning_node_clicked"]

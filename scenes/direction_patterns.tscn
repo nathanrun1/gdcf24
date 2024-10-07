@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://cn5hkcuoavp1m"]
+
+[ext_resource type="Texture2D" uid="uid://jbxxmwtvs3ku" path="res://assets/sprites/patterns/Patterns-6.png" id="1_xactx"]
+[ext_resource type="Texture2D" uid="uid://chpbyd8angqcn" path="res://assets/sprites/patterns/Patterns-7.png" id="2_mf70f"]
+[ext_resource type="Texture2D" uid="uid://w8owsp0f3wfs" path="res://assets/sprites/patterns/Patterns-8.png" id="3_77fkl"]
+[ext_resource type="Texture2D" uid="uid://b2yjqnr5tb5tl" path="res://assets/sprites/patterns/Patterns-9.png" id="4_ktjug"]
+[ext_resource type="Texture2D" uid="uid://cyjueid72qw8e" path="res://assets/sprites/patterns/Patterns-10.png" id="5_nsvwc"]
+[ext_resource type="Texture2D" uid="uid://b8xncapqp4squ" path="res://assets/sprites/patterns/Patterns-11.png" id="6_xrvjm"]
+[ext_resource type="Texture2D" uid="uid://cnbnfr6f44w2p" path="res://assets/sprites/patterns/Patterns-12.png" id="7_82a3g"]
+[ext_resource type="Texture2D" uid="uid://koremrnsujmr" path="res://assets/sprites/patterns/Patterns-13.png" id="8_l304w"]
+
+[node name="direction patterns" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="up pattern" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 40.0
+offset_bottom = 120.0
+scale = Vector2(4, 4)
+texture = ExtResource("2_mf70f")
+
+[node name="down pattern" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 120.0
+scale = Vector2(4, 4)
+texture = ExtResource("1_xactx")
+
+[node name="left pattern" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 80.0
+offset_right = 360.0
+offset_bottom = 120.0
+scale = Vector2(4, 4)
+texture = ExtResource("3_77fkl")
+
+[node name="right pattern" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 80.0
+offset_right = 520.0
+offset_bottom = 120.0
+scale = Vector2(4, 4)
+texture = ExtResource("4_ktjug")
+
+[node name="top right pattern" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 260.0
+offset_right = 40.0
+offset_bottom = 300.0
+scale = Vector2(4, 4)
+texture = ExtResource("5_nsvwc")
+
+[node name="bottom left pattern" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 260.0
+offset_right = 360.0
+offset_bottom = 300.0
+scale = Vector2(4, 4)
+texture = ExtResource("6_xrvjm")
+
+[node name="top left pattern" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 260.0
+offset_right = 200.0
+offset_bottom = 300.0
+scale = Vector2(4, 4)
+texture = ExtResource("7_82a3g")
+
+[node name="bottom right" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 260.0
+offset_right = 520.0
+offset_bottom = 300.0
+scale = Vector2(4, 4)
+texture = ExtResource("8_l304w")
+
+[node name="mob pattern label" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 149.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+text = "spell directions"
